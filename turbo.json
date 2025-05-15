@@ -1,0 +1,35 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "watch": {
+			"cache": false,
+			"persistent": true
+		},
+    "build:fe:admin": {
+			"dependsOn": ["bds-admin-ui#build"]
+		},
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+    },
+    "typecheck": {
+			"dependsOn": ["^typecheck"]
+		},
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"]
+    },
+    "lint:fe": {
+			"dependsOn": [
+				"bds-admin-ui"
+			]
+		}
+  }
+}

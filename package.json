@@ -1,0 +1,56 @@
+{
+  "name": "base-project",
+  "private": true,
+  "packageManager": "pnpm@10.2.1",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=10.2.1"
+  },
+  "author": "will",
+  "scripts": {
+    "build:fe:admin": "turbo run build:fe:admin",
+    "dev:fe:admin": "turbo run dev --parallel --env-mode=loose --filter=bds-admin-ui"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "catalog:common",
+    "@eslint/js": "catalog:common",
+    "@next/eslint-plugin-next": "catalog:common",
+    "@types/jest": "catalog:common",
+    "@types/node": "catalog:common",
+    "@types/supertest": "catalog:common",
+    "cross-env": "catalog:common",
+    "esbuild": "catalog:common",
+    "eslint": "catalog:common",
+    "eslint-config-prettier": "catalog:common",
+    "eslint-plugin-only-warn": "catalog:common",
+    "eslint-plugin-react": "catalog:common",
+    "eslint-plugin-react-hooks": "catalog:common",
+    "eslint-plugin-react-refresh": "catalog:common",
+    "eslint-plugin-turbo": "catalog:common",
+    "globals": "catalog:common",
+    "jest": "catalog:common",
+    "jest-environment-jsdom": "catalog:common",
+    "jest-expect-message": "catalog:common",
+    "jest-junit": "catalog:common",
+    "jest-mock": "catalog:common",
+    "jest-mock-extended": "catalog:common",
+    "prettier": "catalog:common",
+    "rimraf": "catalog:common",
+    "sass-embedded": "^1.88.0",
+    "supertest": "catalog:common",
+    "ts-jest": "catalog:common",
+    "tsc-alias": "catalog:common",
+    "tsc-watch": "catalog:common",
+    "tsconfig-paths": "catalog:common",
+    "tslib": "catalog:common",
+    "turbo": "catalog:common",
+    "typescript": "catalog:common",
+    "typescript-eslint": "catalog:common",
+    "vite": "catalog:common",
+    "vite-plugin-svgr": "^4.3.0",
+    "vitest": "catalog:common"
+  },
+  "dependencies": {
+    "lodash": "catalog:common"
+  }
+}

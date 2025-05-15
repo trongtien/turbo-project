@@ -1,0 +1,11 @@
+/src
+/tests
+/.turbo
+!dist
+
+jest.config.js
+postcss.config.js
+vue.config.js
+dist/report.html
+public/
+.eslintrc.js
