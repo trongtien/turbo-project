@@ -25,6 +25,10 @@ const alias = [
         find: /^@bds\/theme(.+)$/,
         replacement: resolve(packagesDir, 'fe', '@bds', 'theme$1'),
     },
+    {
+        find: /^@bds\/design-layout(.+)$/,
+        replacement: resolve(packagesDir, 'fe', '@bds', 'design-layout', "src$1"),
+    },
     ...['orderBy', 'camelCase', 'cloneDeep', 'startCase'].map((name) => ({
         find: new RegExp(`^lodash.${name}$`, 'i'),
         replacement: `lodash-es/${name}`,
@@ -45,7 +49,7 @@ function getWasmPath(relativePath: string): string | null {
 
     for (const path of possiblePaths) {
         if (fs.existsSync(path)) {
-            console.log(`Found WASM file at: ${path}`);
+            console.debug(`Found WASM file at: ${path}`);
             // Convert Windows path to POSIX style for vite-plugin-static-copy
             return pathPosix.normalize(path.split('\\').join('/'));
         }
@@ -106,7 +110,6 @@ export default mergeConfig(
                     additionalData: [
                         '',
                         '@use "@bds/theme/bds-theme-variables.scss" as *;',
-                        // '@use "@n8n/design-system/css/mixins" as mixins;',
                     ].join('\n'),
                 },
             },

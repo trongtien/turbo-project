@@ -1,13 +1,8 @@
 :root {
-	--vcolor: #{$text-color};
+	--text-primary: #{$text-color};
 }
 
 body {
 	margin: 0;
 	padding: 0;
-}
-
-.text-global {
-	height: var(--text);
-	color: var(--vcolor);
 }

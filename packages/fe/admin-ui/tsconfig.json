@@ -2,7 +2,7 @@
   "extends": "@bds/typescript-config/tsconfig.react.json",
   "compilerOptions": {
 		"baseUrl": ".",
-		"rootDirs": [".", "../@bds/theme"],
+		"rootDirs": [".", "../@bds/theme", "../@bds/design-layout/src"],
 		"outDir": "dist",
 		"types": [
 			"vitest/globals"
@@ -10,7 +10,8 @@
     	"noEmit": true,
 		"paths": {
 			"@admin-ui/*": ["./src/*"],
-			"@bds/theme*": ["../@bds/theme*"]
+			"@bds/theme*": ["../@bds/theme*"],
+			"@bds/design-layout*": ["../@bds/design-layout/src*"],
 		},
 		"useUnknownInCatchVariables": false,
 		

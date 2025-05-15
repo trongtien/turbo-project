@@ -1,0 +1,52 @@
+{
+  "name": "@bds/design-layout",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/bds-design-layout.umd.js",
+  "module": "./dist/bds-design-layout.es.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/bds-design-layout.es.js",
+      "require": "./dist/bds-design-layout.umd.js"
+    },
+    "./style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    },
+    "./*": {
+      "import": "./*",
+      "require": "./*"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "dev": "pnpm run storybook",
+    "clean": "rimraf dist .turbo",
+    "build": "vite build",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "build:storybook": "storybook build",
+    "storybook": "storybook dev -p 6006 --no-open",
+    "chromatic": "chromatic",
+    "format": "biome format --write .  && prettier --write . --ignore-path ../../../../.prettierignore",
+    "format:check": "biome ci .  && prettier --check . --ignore-path ../../../../.prettierignore",
+    "lint": "eslint src --ext .js,.ts,.tsx,.jsx --quiet",
+    "lintfix": "eslint src --ext .js,.ts,.rsx,.jsx --fix"
+  },
+  "devDependencies": {
+    "@bds/eslint-config": "workspace:*",
+    "@bds/typescript-config": "workspace:*",
+    "@bds/vitest-config": "workspace:*",
+    "@types/react": "catalog:frontend",
+    "@types/react-dom": "catalog:frontend",
+    "@vitejs/plugin-react": "catalog:frontend",
+    "browserslist": "catalog:frontend",
+    "browserslist-to-esbuild": "catalog:frontend",
+    "unplugin-icons": "catalog:frontend",
+    "unplugin-react-components": "catalog:frontend",
+    "vite-plugin-static-copy": "catalog:frontend"
+  }
+}

@@ -8,13 +8,18 @@
   },
   "author": "will",
   "scripts": {
+    "start": "run-script-os",
     "build:fe:admin": "turbo run build:fe:admin",
+    "dev:fe": "pnpm run dev:fe:admin && pnpm run dev:fe:ui",
+    "dev:fe:ui": "turbo run dev --parallel --env-mode=loose --filter=@bds/design-layout",
     "dev:fe:admin": "turbo run dev --parallel --env-mode=loose --filter=bds-admin-ui"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:common",
     "@eslint/js": "catalog:common",
     "@next/eslint-plugin-next": "catalog:common",
+    "@testing-library/jest-dom": "catalog:common",
+    "@testing-library/user-event": "catalog:common",
     "@types/jest": "catalog:common",
     "@types/node": "catalog:common",
     "@types/supertest": "catalog:common",
@@ -34,9 +39,13 @@
     "jest-junit": "catalog:common",
     "jest-mock": "catalog:common",
     "jest-mock-extended": "catalog:common",
+    "npm-run-all2": "^8.0.1",
     "prettier": "catalog:common",
     "rimraf": "catalog:common",
-    "sass-embedded": "^1.88.0",
+    "run-p": "^0.0.0",
+    "run-script-os": "^1.1.6",
+    "sass": "catalog:common",
+    "sass-embedded": "catalog:common",
     "supertest": "catalog:common",
     "ts-jest": "catalog:common",
     "tsc-alias": "catalog:common",
@@ -47,8 +56,9 @@
     "typescript": "catalog:common",
     "typescript-eslint": "catalog:common",
     "vite": "catalog:common",
-    "vite-plugin-svgr": "^4.3.0",
-    "vitest": "catalog:common"
+    "vite-plugin-svgr": "catalog:common",
+    "vitest": "catalog:common",
+    "vitest-mock-extended": "catalog:common"
   },
   "dependencies": {
     "lodash": "catalog:common"
