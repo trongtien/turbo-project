@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react'
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 import svgr from "vite-plugin-svgr";
 import fs from 'fs'
+import tailwindcss from '@tailwindcss/vite'
 
 import { vitestConfig } from '@bds/vitest-config/frontend';
 import icons from 'unplugin-icons/vite';
@@ -60,6 +61,7 @@ function getWasmPath(relativePath: string): string | null {
 
 
 const plugins = [
+    tailwindcss(),
     icons({
         compiler: 'jsx',
         autoInstall: true,

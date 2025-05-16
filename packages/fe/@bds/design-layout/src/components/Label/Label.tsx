@@ -14,7 +14,7 @@ interface LabelProps extends React.ComponentPropsWithoutRef<typeof LabelPrimitiv
 	size?: LabelSize;
 }
 
-type LabelRef = React.ElementRef<typeof LabelPrimitive.Root>
+type LabelRef = React.ComponentRef<typeof LabelPrimitive.Root>
 
 const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
 	(
