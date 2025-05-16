@@ -1,0 +1,9 @@
+@import '../../styles/variables';
+
+.content {
+	padding: 1.5rem;
+
+	p:not(:last-child) {
+		margin-bottom: 0.75rem;
+	}
+}

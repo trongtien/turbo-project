@@ -12,18 +12,16 @@
       "import": "./dist/bds-design-layout.es.js",
       "require": "./dist/bds-design-layout.umd.js"
     },
-    "./style.css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
-    },
     "./*": {
       "import": "./*",
       "require": "./*"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "dev": "pnpm run storybook",
+    "dev": "vite build --watch",
     "clean": "rimraf dist .turbo",
     "build": "vite build",
     "test": "vitest run",
@@ -40,6 +38,7 @@
     "@bds/eslint-config": "workspace:*",
     "@bds/typescript-config": "workspace:*",
     "@bds/vitest-config": "workspace:*",
+    "@bds/theme": "workspace:*",
     "@types/react": "catalog:frontend",
     "@types/react-dom": "catalog:frontend",
     "@vitejs/plugin-react": "catalog:frontend",
@@ -48,5 +47,8 @@
     "unplugin-icons": "catalog:frontend",
     "unplugin-react-components": "catalog:frontend",
     "vite-plugin-static-copy": "catalog:frontend"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.2"
   }
 }

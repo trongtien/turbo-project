@@ -10,7 +10,8 @@
 			"./node_modules/@testing-library",
 			"./node_modules/@types",
 			"../../../../node_modules",
-			"../../../../node_modules/@types"
+			"../../../../node_modules/@types",
+			"./src/module.scss.d.ts",
 		],
 		"paths": {
 			"@bds/design-layout*": ["./src*"],

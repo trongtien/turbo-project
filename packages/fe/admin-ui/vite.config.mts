@@ -109,7 +109,7 @@ export default mergeConfig(
                 scss: {
                     additionalData: [
                         '',
-                        '@use "@bds/theme/bds-theme-variables.scss" as *;',
+                        '@use "@bds/theme/bds-theme-variables.scss" as *;'
                     ].join('\n'),
                 },
             },

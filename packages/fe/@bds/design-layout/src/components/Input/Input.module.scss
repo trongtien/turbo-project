@@ -1,0 +1,224 @@
+@import '../../styles/main.scss';
+
+@mixin input-base {
+  appearance: none;
+  background-clip: padding-box;
+  background-color: transparent;
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  width: 100%;
+  display: block;
+}
+
+.inputContainer {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  @include input-base;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: $radius;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:focus {
+    border-color: hsl(var(--ring));
+    box-shadow: 0 0 0 1px hsl(var(--ring));
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: hsl(var(--background) / 0.5);
+    color: hsl(var(--muted-foreground));
+    cursor: not-allowed;
+  }
+
+  &.hasLeftIcon {
+    padding-left: 2.25rem;
+  }
+
+  &.hasRightIcon {
+    padding-right: 2.25rem;
+  }
+}
+
+/* Size variants */
+.size-sm {
+  height: 2rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8125rem;
+}
+
+.size-md {
+  height: 2.5rem;
+}
+
+.size-lg {
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+/* Error state */
+.error {
+  border-color: hsl(var(--destructive));
+
+  &:focus {
+    box-shadow: 0 0 0 1px hsl(var(--destructive));
+  }
+}
+
+.errorMessage {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: hsl(var(--destructive));
+}
+
+/* Icons */
+.leftIcon {
+  position: absolute;
+  left: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  pointer-events: none;
+}
+
+.rightIcon {
+  position: absolute;
+  right: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  pointer-events: none;
+}
+
+.clearButton {
+  position: absolute;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  color: hsl(var(--muted-foreground));
+  cursor: pointer;
+  padding: 0.25rem;
+
+  &:hover {
+    color: hsl(var(--foreground));
+  }
+}
+
+.inputContainer {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  @include input-base;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: $radius;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:focus {
+    border-color: hsl(var(--ring));
+    box-shadow: 0 0 0 1px hsl(var(--ring));
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: hsl(var(--background) / 0.5);
+    color: hsl(var(--muted-foreground));
+    cursor: not-allowed;
+  }
+
+  &.hasLeftIcon {
+    padding-left: 2.25rem;
+  }
+
+  &.hasRightIcon {
+    padding-right: 2.25rem;
+  }
+}
+
+/* Size variants */
+.size-sm {
+  height: 2rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8125rem;
+}
+
+.size-md {
+  height: 2.5rem;
+}
+
+.size-lg {
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+/* Error state */
+.error {
+  border-color: hsl(var(--destructive));
+
+  &:focus {
+    box-shadow: 0 0 0 1px hsl(var(--destructive));
+  }
+}
+
+.errorMessage {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: hsl(var(--destructive));
+}
+
+/* Icons */
+.leftIcon {
+  position: absolute;
+  left: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  pointer-events: none;
+}
+
+.rightIcon {
+  position: absolute;
+  right: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  pointer-events: none;
+}
+
+.clearButton {
+  position: absolute;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  color: hsl(var(--muted-foreground));
+  cursor: pointer;
+  padding: 0.25rem;
+
+  &:hover {
+    color: hsl(var(--foreground));
+  }
+}

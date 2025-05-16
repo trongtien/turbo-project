@@ -1,0 +1,16 @@
+@import '../../styles/variables';
+
+.footer {
+	display: flex;
+	align-items: center;
+	padding: 0 1.5rem 1.5rem;
+
+	&.withBorder {
+		padding-top: 1.5rem;
+		border-top: 1px solid hsl(var(--border));
+	}
+
+	> * + * {
+		margin-left: 0.5rem;
+	}
+}
