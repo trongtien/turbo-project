@@ -1,0 +1,47 @@
+@import '../../styles/variables';
+
+.separator {
+	background-color: hsl(var(--border));
+	flex-shrink: 0;
+
+	&[data-orientation='horizontal'] {
+		height: 1px;
+		width: 100%;
+		margin: 0.5rem 0;
+	}
+
+	&[data-orientation='vertical'] {
+		width: 1px;
+		height: 100%;
+		margin: 0 0.5rem;
+	}
+
+	&.size-sm {
+		&[data-orientation='horizontal'] {
+			margin: 0.25rem 0;
+		}
+		&[data-orientation='vertical'] {
+			margin: 0 0.25rem;
+		}
+	}
+
+	&.size-lg {
+		&[data-orientation='horizontal'] {
+			margin: 0.75rem 0;
+		}
+		&[data-orientation='vertical'] {
+			margin: 0 0.75rem;
+		}
+	}
+
+	&.decorative {
+		&[data-orientation='horizontal'] {
+			height: 2px;
+			background: linear-gradient(to right, transparent, hsl(var(--primary)), transparent);
+		}
+		&[data-orientation='vertical'] {
+			width: 2px;
+			background: linear-gradient(to bottom, transparent, hsl(var(--primary)), transparent);
+		}
+	}
+}

@@ -9,6 +9,7 @@ import {
 	CardContent,
 	CardFooter,
 } from '@bds/design-layout/components/Card';
+import Separator from '@bds/design-layout/components/Separator';
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 			<br />
 			<Button>Test</Button>
 			<Input size="sm" placeholder="config" />
+			<Separator orientation="vertical" />
 			<Card>
 				<CardHeader>
 					<CardTitle>Card Title</CardTitle>
