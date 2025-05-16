@@ -1,7 +1,7 @@
 import { Button } from '@bds/design-layout/components/Button';
 import Input from '@bds/design-layout/components/Input';
 import Label from '@bds/design-layout/components/Label';
-import { Settings, User, LogOut } from 'lucide-react';
+import { Settings, User, LogOut, MenuIcon } from 'lucide-react';
 import {
 	Card,
 	CardHeader,
@@ -12,6 +12,7 @@ import {
 } from '@bds/design-layout/components/Card';
 import Separator from '@bds/design-layout/components/Separator';
 import Tooltip from '@bds/design-layout/components/Tooltip';
+import Collapsible from '@bds/design-layout/components/Collapsible';
 
 import {
 	DropdownMenu,
@@ -21,9 +22,48 @@ import {
 	DropdownMenuSeparator,
 } from '@bds/design-layout/components/DropdownMenu';
 
+import {
+	Sidebar,
+	SidebarTrigger,
+	SidebarContent,
+	SidebarHeader,
+	SidebarItem,
+} from '@bds/design-layout/components/Sidebar';
+
 function App() {
 	return (
 		<div className="test">
+			<Collapsible trigger="Click to expand">
+				<div className="p-4">
+					<p>This content will be shown when expanded</p>
+				</div>
+			</Collapsible>
+
+			<br />
+			<br />
+			<br />
+			<br />
+			<Sidebar>
+				<SidebarTrigger asChild>
+					<button className="custom-button">
+						<MenuIcon />
+					</button>
+				</SidebarTrigger>
+
+				<SidebarContent>
+					<SidebarHeader>
+						<h2>Menu</h2>
+					</SidebarHeader>
+
+					<SidebarItem active>Dashboard</SidebarItem>
+					<SidebarItem>Settings</SidebarItem>
+					<SidebarItem>Profile</SidebarItem>
+				</SidebarContent>
+			</Sidebar>
+			<br />
+			<br />
+			<br />
+			<br />
 			Submit
 			<br />
 			<Label htmlFor="username" size="lg">
@@ -59,11 +99,7 @@ function App() {
 				</DropdownMenuContent>
 			</DropdownMenu>
 			<br />
-			<Tooltip
-				content="Custom positioned tooltip"
-				align="start"
-				className="custom-tooltip-class"
-			>
+			<Tooltip content="Custom positioned tooltip" align="start" className="custom-tooltip-class">
 				<button>Hover me</button>
 			</Tooltip>
 		</div>

@@ -11,6 +11,10 @@ interface CollapsibleProps {
 	className?: string;
 }
 
+const CollapsibleRoot = CollapsiblePrimitive.Root;
+const CollapsibleTrigger = CollapsiblePrimitive.CollapsibleTrigger;
+const CollapsibleContent = CollapsiblePrimitive.CollapsibleContent;
+
 const Collapsible = ({
 	children,
 	trigger,
@@ -21,22 +25,22 @@ const Collapsible = ({
 	const [open, setOpen] = React.useState(defaultOpen);
 
 	return (
-		<CollapsiblePrimitive.Root
+		<CollapsibleRoot
 			className={`${styles.collapsibleRoot} ${className}`}
 			open={open}
 			onOpenChange={setOpen}
 			disabled={disabled}
 		>
-			<CollapsiblePrimitive.Trigger className={styles.collapsibleTrigger} disabled={disabled}>
+			<CollapsibleTrigger className={styles.collapsibleTrigger} disabled={disabled}>
 				{trigger}
 				<ChevronDown className={styles.collapsibleChevron} size={16} />
-			</CollapsiblePrimitive.Trigger>
+			</CollapsibleTrigger>
 
-			<CollapsiblePrimitive.Content className={styles.collapsibleContent}>
-				{children}
-			</CollapsiblePrimitive.Content>
-		</CollapsiblePrimitive.Root>
+			<CollapsibleContent className={styles.collapsibleContent}>{children}</CollapsibleContent>
+		</CollapsibleRoot>
 	);
 };
+
+export { CollapsibleRoot, CollapsibleTrigger, CollapsibleContent };
 
 export default Collapsible;
