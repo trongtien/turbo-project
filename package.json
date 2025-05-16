@@ -49,6 +49,7 @@
     "sass-embedded": "catalog:common",
     "supertest": "catalog:common",
     "tailwindcss": "^4.1.7",
+    "tailwindcss-animate": "^1.0.7",
     "ts-jest": "catalog:common",
     "tsc-alias": "catalog:common",
     "tsc-watch": "catalog:common",

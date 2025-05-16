@@ -1,10 +1,2 @@
-export * from './Button';
-export * from './Input';
-export * from './Card';
-export * from './Label';
-export * from './Separator';
-export * from './DropdownMenu';
-export * from './Tooltip';
-export * from './Sidebar';
-export * from './Form';
-export * from './Collapsible';
+export { default } from './core-app-provider';
+export { default as TextArea } from './textArea';
