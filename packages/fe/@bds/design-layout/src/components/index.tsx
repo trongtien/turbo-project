@@ -7,3 +7,4 @@ export * from './DropdownMenu';
 export * from './Tooltip';
 export * from './Sidebar';
 export * from './Form';
+export * from './Collapsible';
