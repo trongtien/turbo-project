@@ -5,3 +5,4 @@ export * from './Label';
 export * from './Separator';
 export * from './DropdownMenu';
 export * from './Tooltip';
+export * from './Sidebar';
