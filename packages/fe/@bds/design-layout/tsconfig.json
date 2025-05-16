@@ -14,7 +14,7 @@
 			"./src/module.scss.d.ts",
 		],
 		"paths": {
-			"@bds/design-layout*": ["./src*"],
+			"@bds/design-layout/*": ["./src/*"],
 			"@bds/theme*": ["../theme*"],
 		}
 	},
