@@ -1,0 +1,28 @@
+@import '../../styles/variables';
+
+.label {
+	display: inline-block;
+	font-size: 0.875rem;
+	font-weight: 500;
+	line-height: 1;
+	color: hsl(var(--foreground));
+	margin-bottom: 0.5rem;
+
+	&.required:after {
+		content: ' *';
+		color: hsl(var(--destructive));
+	}
+
+	&.disabled {
+		color: hsl(var(--muted-foreground));
+		cursor: not-allowed;
+	}
+
+	&.size-sm {
+		font-size: 0.75rem;
+	}
+
+	&.size-lg {
+		font-size: 1rem;
+	}
+}

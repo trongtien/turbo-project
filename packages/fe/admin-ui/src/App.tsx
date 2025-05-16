@@ -1,5 +1,6 @@
 import { Button } from '@bds/design-layout/components/Button';
 import Input from '@bds/design-layout/components/Input';
+import Label from '@bds/design-layout/components/Label';
 import {
 	Card,
 	CardHeader,
@@ -13,6 +14,10 @@ function App() {
 	return (
 		<div className="test">
 			Submit
+			<br />
+			<Label htmlFor="username" size='lg'>
+				Username
+			</Label>
 			<br />
 			<Button>Test</Button>
 			<Input size="sm" placeholder="config" />

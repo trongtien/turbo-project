@@ -36,9 +36,9 @@
   },
   "devDependencies": {
     "@bds/eslint-config": "workspace:*",
+    "@bds/theme": "workspace:*",
     "@bds/typescript-config": "workspace:*",
     "@bds/vitest-config": "workspace:*",
-    "@bds/theme": "workspace:*",
     "@types/react": "catalog:frontend",
     "@types/react-dom": "catalog:frontend",
     "@vitejs/plugin-react": "catalog:frontend",
@@ -49,6 +49,7 @@
     "vite-plugin-static-copy": "catalog:frontend"
   },
   "dependencies": {
+    "@radix-ui/react-label": "^2.1.6",
     "@radix-ui/react-slot": "^1.2.2"
   }
 }
