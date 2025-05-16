@@ -11,6 +11,7 @@ import {
 	CardFooter,
 } from '@bds/design-layout/components/Card';
 import Separator from '@bds/design-layout/components/Separator';
+import Tooltip from '@bds/design-layout/components/Tooltip';
 
 import {
 	DropdownMenu,
@@ -57,6 +58,14 @@ function App() {
 					<DropdownMenuItem icon={<LogOut size={16} />}>Log out</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>
+			<br />
+			<Tooltip
+				content="Custom positioned tooltip"
+				align="start"
+				className="custom-tooltip-class"
+			>
+				<button>Hover me</button>
+			</Tooltip>
 		</div>
 	);
 }
