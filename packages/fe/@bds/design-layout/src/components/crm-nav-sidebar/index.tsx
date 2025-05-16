@@ -155,7 +155,7 @@ const data = {
 	],
 };
 
-const NavSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
+const CRMNavSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
 	return (
 		<Sidebar collapsible="icon" {...props}>
 			<SidebarHeader>
@@ -173,4 +173,4 @@ const NavSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
 	);
 };
 
-export default NavSidebar;
+export default CRMNavSidebar;

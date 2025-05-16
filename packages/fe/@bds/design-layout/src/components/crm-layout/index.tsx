@@ -1,7 +1,7 @@
 import { SidebarInset, SidebarProvider } from '@bds/design-layout/main-ui';
 import { Toaster as SonnerToaster } from 'sonner';
 import { Toaster } from '@bds/design-layout/ui/toaster';
-import NavSidebar from '../nav-sidebar';
+import NavSidebar from '../crm-nav-sidebar';
 import HeaderWrapper from './header-wrapper';
 import HeaderBreadcrumbList from './header-breadcrumb-list';
 import type { PropsWithChildren } from 'react';
