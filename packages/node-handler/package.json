@@ -1,0 +1,37 @@
+{
+  "name": "bds-node-handler",
+  "version": "1.93.0",
+  "description": "bds handler app back end",
+  "main": "dist/index",
+  "types": "dist/index.d.ts",
+  "oclif": {
+    "commands": "./dist/commands",
+    "helpClass": "./dist/help",
+    "bin": "bds"
+  },
+  "scripts": {
+    
+  },
+  "bin": {
+    "n8n": "./bin/n8n"
+  },
+  "keywords": [
+    "bds",
+    "setting"
+  ],
+  "engines": {
+    "node": ">=18.17 <= 22"
+  },
+  "files": [
+    "bin",
+    "templates",
+    "dist",
+    "!dist/**/e2e.*"
+  ],
+  "devDependencies": {
+    "@bds/typescript-config": "workspace:*",
+    "bds-node-setting": "workspace:*",
+    "@bds/node-core": "workspace:*"
+  },
+  "dependencies": {}
+}

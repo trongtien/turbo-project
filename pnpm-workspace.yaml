@@ -3,6 +3,8 @@ packages:
   - "packages/@bds/*"
   - "packages/fe/*"
   - "packages/fe/@bds/*"
+  - "packages/node-handler/*"
+  - "packages/node-core/*"
 
 catalog:
 
