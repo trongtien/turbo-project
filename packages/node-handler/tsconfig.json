@@ -23,5 +23,6 @@
 		{ "path": "../node-setting/tsconfig.build.json" },
         { "path": "../@bds/api-types/tsconfig.build.json" },
         { "path": "../@bds/node-core/tsconfig.build.json" },
+        { "path": "../@bds/node-data/tsconfig.build.json" },
 	]
 }

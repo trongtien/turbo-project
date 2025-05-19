@@ -39,6 +39,6 @@
     "@bds/typescript-config": "workspace:*"
   },
   "dependencies": {
-   
+   "@bds/node-data": "workspace:*"
   }
 }
