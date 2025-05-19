@@ -1,5 +1,4 @@
 import {
-    doublePrecision,
     pgTableCreator,
     text,
     varchar,
@@ -11,6 +10,5 @@ const pgTable = pgTableCreator((name) => `hono_${name}`);
 export const categoryEntity = pgTable("category", {
     name: varchar("name", { length: 256 }).notNull(),
     description: text("description"),
-    price: doublePrecision("price"),
     ...abstractEntity
 });

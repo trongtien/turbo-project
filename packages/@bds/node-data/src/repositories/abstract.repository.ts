@@ -11,11 +11,11 @@ export class AbstractRepository extends AbstractDatabaseConnect {
         this.table = this.schema[schemaName]
     }
 
-    async getAll() {
+    async findMany() {
         return await this.db.select().from(this.table);
     }
 
-    async findById(id: number) {
+    async findById(id: string) {
         const [record] = await this.db.select().from(this.table)
             .where(eq(this.keyTable(), id))
 
@@ -27,10 +27,11 @@ export class AbstractRepository extends AbstractDatabaseConnect {
     }
 
     async update(id: string, data: InferSelectModel<typeof this.table>) {
-        return await this.db.update(this.table)
+        const [record] = await this.db.update(this.table)
             .set(data)
             .where(eq(this.keyTable(), id))
             .returning()
+        return record
     }
 
     async findOne(conditions: Partial<typeof this.table>) {
