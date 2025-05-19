@@ -5,7 +5,7 @@
     "jsx": "react-jsx",
     "importHelpers": true,
     "allowJs": true,
-    "incremental": false,
+    "incremental": true,
     "allowSyntheticDefaultImports": true,
     "lib": ["esnext", "dom", "dom.iterable", "scripthost", "ES2023"],
 
@@ -19,6 +19,7 @@
 
      /* Linting */
     "strict": true,
+    "resolveJsonModule": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,

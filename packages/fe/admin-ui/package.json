@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf dist && rimraf .turbo",
     "build": "rimraf dist && set NODE_OPTIONS=--max-old-space-size=8192 && tsc -b && vite build",
-    "dev": "vite",
+    "dev": "vite --force",
     "lint": "eslint src --ext .js,.ts,.tsx,.jsx --quiet",
     "lint-fix": "eslint src --ext .js,.ts,.tsx,.jsx --fix",
     "format": "biome format --write . && prettier --write . --ignore-path ../../../.prettierignore",

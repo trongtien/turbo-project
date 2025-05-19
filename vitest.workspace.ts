@@ -1,1 +1,1 @@
-export default ['packages/frontend'];
+export default ['packages/fe', 'packages/fe/@bds'];

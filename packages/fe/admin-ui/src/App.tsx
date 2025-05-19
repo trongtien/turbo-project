@@ -1,13 +1,14 @@
-import CoreAppProvider from '@bds/design-layout/components/core-app-provider';
-import TextArea from '@bds/design-layout/components/textArea';
+import AppThemeProvider from '@bds/design-layout/components/app-theme-provider';
+import CRMLayout from '@bds/design-layout/components/crm-layout';
+
+import './admin-ui-theme.scss';
+import './tailwind.css';
 
 function App() {
 	return (
-		<CoreAppProvider>
-			<div className="test">
-				<TextArea />
-			</div>
-		</CoreAppProvider>
+		<AppThemeProvider>
+			<CRMLayout>CRM App Admin</CRMLayout>
+		</AppThemeProvider>
 	);
 }
 

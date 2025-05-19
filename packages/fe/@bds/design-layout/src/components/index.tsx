@@ -1,4 +1,4 @@
-export { default as CoreAppProvider } from './core-app-provider';
+export { default as AppThemeProvider } from './app-theme-provider';
 export { default as NavMain } from './crm-nav-sidebar/nav-main';
 export { default as NavProjects } from './crm-nav-sidebar/nav-projects';
 export { default as NavUser } from './crm-nav-sidebar/nav-user';

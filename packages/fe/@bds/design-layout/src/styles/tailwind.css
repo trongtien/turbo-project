@@ -12,26 +12,6 @@
 	}
 }
 
-@theme {
-	@keyframes accordion-down {
-		from {
-			height: 0;
-		}
-		to {
-			height: var(--radix-accordion-content-height);
-		}
-	}
-
-	@keyframes accordion-up {
-		from {
-			height: var(--radix-accordion-content-height);
-		}
-		to {
-			height: 0;
-		}
-	}
-}
-
 @layer utilities {
 	body {
 		font-family: Arial, Helvetica, sans-serif;
@@ -75,12 +55,22 @@
 	--color-chart-4: hsl(var(--chart-4));
 	--color-chart-5: hsl(var(--chart-5));
 
-    --radius-lg: var(--radius);
+	--color-sidebar: hsl(var(--sidebar-background));
+	--color-sidebar-foreground: hsl(var(--sidebar-foreground));
+	--color-sidebar-primary: hsl(var(--sidebar-primary));
+	--color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+	--color-sidebar-accent: hsl(var(--sidebar-accent));
+	--color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+	--color-sidebar-border: hsl(var(--sidebar-border));
+	--color-sidebar-ring: hsl(var(--sidebar-ring));
+
+	--radius-lg: var(--radius);
 	--radius-md: calc(var(--radius) - 2px);
 	--radius-sm: calc(var(--radius) - 4px);
 
 	--animate-accordion-down: accordion-down 0.2s ease-out;
 	--animate-accordion-up: accordion-up 0.2s ease-out;
+	--animate-bars-loader: bars-loader 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
 
 	@keyframes accordion-down {
 		from {
@@ -97,6 +87,21 @@
 		}
 		to {
 			height: 0;
+		}
+	}
+
+	@keyframes bars-loader {
+		0%: {
+			transform: 'scale(0.6)';
+			opacity: '0';
+		}
+		50%: {
+			transform: 'scale(1)';
+			opacity: '1';
+		}
+		100%: {
+			transform: 'scale(1)';
+			opacity: '1';
 		}
 	}
 }

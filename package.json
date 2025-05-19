@@ -7,17 +7,20 @@
     "pnpm": ">=10.2.1"
   },
   "author": "will",
+
   "scripts": {
     "start": "run-script-os",
     "build:fe:admin": "turbo run build:fe:admin",
     "dev:fe": "run-p dev:fe:*",
     "dev:fe:ui": "turbo run dev --parallel --env-mode=loose --filter=@bds/design-layout",
-    "dev:fe:admin": "turbo run dev --parallel --env-mode=loose --filter=bds-admin-ui --filter=!@bds/design-layout"
+    "dev:fe:admin": "turbo run dev --parallel --env-mode=loose --filter=bds-admin-ui"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:common",
     "@eslint/js": "catalog:common",
     "@next/eslint-plugin-next": "catalog:common",
+    "@tailwindcss/cli": "^4.1.7",
+    "@tailwindcss/postcss": "^4.1.7",
     "@tailwindcss/vite": "^4.1.7",
     "@testing-library/jest-dom": "catalog:common",
     "@testing-library/user-event": "catalog:common",

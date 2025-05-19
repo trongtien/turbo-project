@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { SidebarContext } from '../components/Sidebar/Sidebar';
+import { SidebarContext } from '@bds/design-layout/ui/sidebar';
 
 const useSidebar = () => {
 	const context = useContext(SidebarContext);
@@ -9,4 +9,4 @@ const useSidebar = () => {
 	return context;
 };
 
-export default useSidebar
+export default useSidebar;

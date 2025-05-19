@@ -9,8 +9,27 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/bds-design-layout.es.js",
-      "require": "./dist/bds-design-layout.umd.js"
+      "import": "./dist/design-layout.es.js",
+      "require": "./dist/design-layout.umd.js"
+    },
+    "./design-layout.css": "./dist/design-layout.css",
+    "./styles/*": "./src/styles/*",
+    "./constants": "./src/constants.ts",
+    "./components/*": {
+      "import": "./components/*",
+      "require": "./components/*"
+    },
+    "./ui/*": {
+      "import": "./ui/*",
+      "require": "./ui/*"
+    },
+    "./utils/*": {
+      "import": "./utils/*",
+      "require": "./utils/*"
+    },
+    "./hooks/*": {
+      "import": "./hooks/*",
+      "require": "./hooks/*"
     },
     "./*": {
       "import": "./*",
@@ -18,21 +37,25 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "src/styles"
   ],
   "scripts": {
-    "dev": "vite build --watch",
     "clean": "rimraf dist .turbo",
-    "build": "vite build",
+    "dev": "run-p clean watch:css",
+    "watch:vite": "vite build --watch --mode development",
+    "watch:css": "tailwindcss -i ./src/styles/tailwind.css -o ./dist/style-design-layout.css --watch",
+    "build": "pnpm run build:css && vite build",
     "test": "vitest run",
     "test:dev": "vitest",
-    "build:storybook": "storybook build",
-    "storybook": "storybook dev -p 6006 --no-open",
-    "chromatic": "chromatic",
     "format": "biome format --write .  && prettier --write . --ignore-path ../../../../.prettierignore",
     "format:check": "biome ci .  && prettier --check . --ignore-path ../../../../.prettierignore",
     "lint": "eslint src --ext .js,.ts,.tsx,.jsx --quiet",
     "lintfix": "eslint src --ext .js,.ts,.rsx,.jsx --fix"
+  },
+  "peerDependencies": {
+    "react": "catalog:frontend",
+    "react-dom": "catalog:frontend"
   },
   "devDependencies": {
     "@bds/eslint-config": "workspace:*",
@@ -49,6 +72,8 @@
     "vite-plugin-static-copy": "catalog:frontend"
   },
   "dependencies": {
+    "react": "catalog:frontend",
+    "react-dom": "catalog:frontend",
     "@radix-ui/react-accordion": "^1.2.10",
     "@radix-ui/react-alert-dialog": "^1.1.13",
     "@radix-ui/react-aspect-ratio": "^1.1.6",
@@ -77,8 +102,13 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
+    "embla-carousel-react": "^8.6.0",
+    "input-otp": "^1.4.2",
+    "react-day-picker": "^9.7.0",
     "react-hook-form": "^7.56.3",
+    "react-resizable-panels": "^3.0.2",
     "recharts": "^2.15.3",
-    "sonner": "^2.0.3"
+    "sonner": "^2.0.3",
+    "vaul": "^1.1.2"
   }
 }
