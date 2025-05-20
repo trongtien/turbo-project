@@ -4,12 +4,19 @@
 		"@project/typescript-config/tsconfig.backend.json"
 	],
 	"compilerOptions": {
-		"outDir": "dist",
-		"preserveSymlinks": true,
-		"tsBuildInfoFile": "dist/build.tsbuildinfo",
-		"composite": true,
-		// TODO: remove all options below this line
-		"useUnknownInCatchVariables": false
+		"rootDir": ".",
+		"types": ["node", "jest"],
+		"baseUrl": "src",
+		"tsBuildInfoFile": "dist/typecheck.tsbuildinfo",
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+
+		// remove all options below this line
+		"strictPropertyInitialization": false,
+
+		"paths": {
+			"@/node-setting/*": ["./src"],
+		},
 	},
 	"include": ["commands/**/*.ts", "src/**/*.ts"],
 	"references": [

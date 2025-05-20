@@ -410,6 +410,12 @@ importers:
 
   packages/@project/node-data:
     dependencies:
+      '@project/node-config':
+        specifier: workspace:*
+        version: link:../node-config
+      '@project/node-decorator':
+        specifier: workspace:*
+        version: link:../node-decorator
       drizzle-orm:
         specifier: ^0.43.1
         version: 0.43.1(@types/pg@8.15.2)(pg@8.16.0)

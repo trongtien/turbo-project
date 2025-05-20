@@ -3,7 +3,7 @@ import { GlobalConfig, InstanceSettingsConfig } from '@project/node-config';
 import * as LoggerProxy from './logger-proxy';
 import path from 'path'
 import winston from 'winston';
-import pc from 'picocolors';
+// import pc from 'picocolors';
 import { basename } from 'node:path';
 import callsites from 'callsites';
 import { LOG_LEVELS, LogLevel, LogLocationMetadata, LogMetadata, Logger, Logger as LoggerType } from './logger.type';

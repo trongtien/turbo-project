@@ -12,9 +12,11 @@
 		"strictPropertyInitialization": false,
 
 		"paths": {
-			"@/node-data/*": ["./src"],
+			"@/node-data/*": ["./src/*"],
 		},
 	},
 	"include": ["src/**/*.ts"],
-	"references": []
+	"references": [
+		{ "path": "../node-config/tsconfig.build.json" }
+	]
 }

@@ -2,8 +2,8 @@ import { Pool, type PoolClient } from "pg";
 import { drizzle, NodePgDatabase } from "drizzle-orm/node-postgres";
 import type { DatabaseConnect, SchemaDatabaseConnect } from "types/abstract-database-connect.type";
 import { categoryEntity } from "entities";
-
-
+import { Service } from '@project/node-decorator'
+@Service({ singleton: true })
 export class AbstractDatabaseConnect {
     private _client: PoolClient
     private _db: NodePgDatabase<SchemaDatabaseConnect>
