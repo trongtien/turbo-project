@@ -22,7 +22,7 @@ export class LoggerService implements LoggerType {
         private readonly instanceSettingsConfig: InstanceSettingsConfig
     ) {
         const isRoot = true
-        const level = globalConfig.logging.level
+        const level = globalConfig.logging.level || 'error'
 
         this.level = level
         this.scopes = new Set(globalConfig.logging.scopes ?? []);

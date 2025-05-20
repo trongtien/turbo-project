@@ -1,10 +1,11 @@
 import { Hono } from 'hono'
 import { GlobalConfig } from '@project/node-config';
 import { LoggerService } from '@project/node-core';
-import { ControllerRegistryMetadata, container } from '@project/node-decorator';
+import { ControllerRegistryMetadata, Service, container } from '@project/node-decorator';
 import { serve, type ServerType } from '@hono/node-server'
 import { AbstractDatabaseConnect } from "@project/node-data";
 
+@Service({ singleton: true })
 export abstract class AbstractServer {
     protected app: Hono
     protected server: ServerType
@@ -17,16 +18,17 @@ export abstract class AbstractServer {
 
 
     constructor() {
-      this.app = new Hono()
+        this.app = new Hono()
+        this.onInitModule()
     }
 
     async onInitModule(): Promise<void> {
-      await Promise.allSettled([
-          this.commonMiddlewares(),
-          this.loadRouter(),
-          this.setupCorsMiddlewares(),
-          this.abstractConnectDatabase.onConnect()
-      ])
+        await this.abstractConnectDatabase.onConnect()
+        await Promise.allSettled([
+            this.commonMiddlewares(),
+            this.loadRouter(),
+            this.setupCorsMiddlewares(),
+        ])
     }
 
     async start(port: number) {

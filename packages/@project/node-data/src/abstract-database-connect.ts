@@ -50,9 +50,9 @@ export class AbstractDatabaseConnect {
       this._client = client
 
       this._db = drizzle(client, { schema: this.schema })
-      this.logger.info(`Connnect database sucesss`)
+      this.logger.info(`Connect database success`)
     } catch (error) {
-      this.logger.error(`Can not connnect database failed error ${error}`)
+      this.logger.error(`Can not connect database failed error ${error}`)
     }
   }
 
