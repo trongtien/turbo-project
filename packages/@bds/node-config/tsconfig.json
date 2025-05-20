@@ -10,11 +10,11 @@
 
 		// remove all options below this line
 		"strictPropertyInitialization": false,
-
+		"downlevelIteration": true,
 		"paths": {
-			"@/node-data/*": ["./src"],
+			"@/node-config/*": ["./src"],
 		},
 	},
 	"include": ["src/**/*.ts"],
-	"references": []
+	"references": [{ "path": "../node-decorator/tsconfig.build.json" }]
 }

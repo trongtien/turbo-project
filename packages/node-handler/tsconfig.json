@@ -7,6 +7,7 @@
 		"rootDir": ".",
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
+		"incremental": true,
 		"baseUrl": "src",
 		"paths": {
 			"@node-handler/*": ["./*"],
@@ -18,11 +19,12 @@
 		"strict": false,
 		"useUnknownInCatchVariables": false
 	},
-	"include": ["src/**/*.ts", "test/**/*.ts", "src/sso.ee/saml/saml-schema-metadata-2.0.xsd"],
+	"include": ["src/**/*.ts", "test/**/*.ts"],
 	"references": [
 		{ "path": "../node-setting/tsconfig.build.json" },
         { "path": "../@bds/api-types/tsconfig.build.json" },
         { "path": "../@bds/node-core/tsconfig.build.json" },
         { "path": "../@bds/node-data/tsconfig.build.json" },
+        { "path": "../@bds/node-decorator/tsconfig.build.json" },
 	]
 }

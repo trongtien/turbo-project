@@ -12,7 +12,11 @@
     "build:fe:admin": "turbo run build:fe:admin",
     "dev:fe": "run-p dev:fe:*",
     "dev:fe:ui": "turbo run dev --parallel --env-mode=loose --filter=@bds/design-layout",
-    "dev:fe:admin": "turbo run dev --parallel --env-mode=loose --filter=bds-admin-ui"
+    "dev:fe:admin": "turbo run dev --parallel --env-mode=loose --filter=bds-admin-ui",
+    "dev:be": "run-p dev:be:*",
+    "dev:be:ignore": "turbo run dev --parallel --env-mode=loose --filter=!@bds/design-layout --filter=!bds-admin-ui",
+    "dev:be:decorator": "turbo run dev --parallel --env-mode=loose --filter=@bds/node-decorator ",
+    "dev:be:handler": "turbo run dev --parallel --env-mode=loose --filter=@bds/node-decorator --filter=bds-node-handler --filter=!@bds/design-layout --filter=!bds-admin-ui"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:common",
@@ -25,7 +29,9 @@
     "@testing-library/user-event": "catalog:common",
     "@types/jest": "catalog:common",
     "@types/node": "catalog:common",
+    "@types/reflect-metadata": "^0.1.0",
     "@types/supertest": "catalog:common",
+    "concurrently": "^9.1.2",
     "cross-env": "catalog:common",
     "esbuild": "catalog:common",
     "eslint": "catalog:common",
@@ -42,6 +48,7 @@
     "jest-junit": "catalog:common",
     "jest-mock": "catalog:common",
     "jest-mock-extended": "catalog:common",
+    "nodemon": "^3.1.10",
     "npm-run-all2": "^8.0.1",
     "prettier": "catalog:common",
     "rimraf": "catalog:common",
@@ -74,6 +81,8 @@
     "hono": "^4.7.10",
     "lodash": "catalog:common",
     "lucide-react": "^0.510.0",
+    "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.10.0",
     "xss": "^1.0.15",
     "zod": "^3.24.4",
     "zod-class": "^0.0.18"

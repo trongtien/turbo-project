@@ -1,13 +1,12 @@
 import { CategoryRepository } from 'repositories/category.repository';
-import { categoryEntity } from './../../entities/category.entity';
 import { InferInsertModel, InferSelectModel } from 'drizzle-orm';
 import { AbstractDatabaseConnect } from 'abstract-database-connect';
-import { describe, it, expect, beforeAll, afterAll } from 'vitest';
+import { categoryEntity } from 'entities';
 
 
 describe('Category Repository', () => {
-    let connect = new AbstractDatabaseConnect()
-    let categoryRepo = new CategoryRepository()
+    let connect: AbstractDatabaseConnect
+    let categoryRepo: CategoryRepository
 
     const MOCK_DATA_CREATE_CATEGORY: InferInsertModel<typeof categoryEntity> = {
         name: "test",
@@ -15,13 +14,16 @@ describe('Category Repository', () => {
     }
 
     beforeAll(async () => {
-        connect.initConnect({
+        connect = new AbstractDatabaseConnect()
+        await connect.initConnect({
             host: '',
             port: 5432,
             username: '',
             password: '',
             database: '',
         })
+
+        categoryRepo = new CategoryRepository()
 
     });
 
@@ -64,6 +66,7 @@ describe('Category Repository', () => {
             const MOCk_DATA_NAME = "Update"
             findOneRecord.name = MOCk_DATA_NAME
             const updateRecord = await categoryRepo.update(id, findOneRecord)
+
             expect(updateRecord?.id).toBe(id);
             expect(updateRecord?.name).toBe(MOCk_DATA_NAME);
             expect(updateRecord?.description).toBe(MOCK_DATA_CREATE_CATEGORY.description);
