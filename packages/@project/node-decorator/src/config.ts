@@ -67,9 +67,6 @@ export const Config: ClassDecorator = (ConfigClass: Class) => {
     };
 
     container.register(ConfigClass as Constructable, { useFactory: factory });
-
-    // Ensure the class is marked injectable
-    Service({ singleton: true })(ConfigClass);
 };
 
 export const Nested: PropertyDecorator = (target: object, key: PropertyKey) => {

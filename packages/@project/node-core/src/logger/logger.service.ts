@@ -6,7 +6,7 @@ import winston from 'winston';
 import pc from 'picocolors';
 import { basename } from 'node:path';
 import callsites from 'callsites';
-import { LOG_LEVELS, LogLevel, LogLocationMetadata, LogMetadata, Logger as LoggerType } from './logger.type';
+import { LOG_LEVELS, LogLevel, LogLocationMetadata, LogMetadata, Logger, Logger as LoggerType } from './logger.type';
 
 const noOp = () => { };
 
@@ -16,15 +16,19 @@ export class LoggerService implements LoggerType {
     private readonly level: LogLevel;
     private readonly scopes: Set<string>;
     private readonly noColor = !!process.env.NO_COLOR;
-    private readonly globalConfig: GlobalConfig
-    private readonly instanceSettingsConfig: InstanceSettingsConfig
+
     constructor(
-        { isRoot }: { isRoot?: boolean } = { isRoot: true }
+        private readonly globalConfig: GlobalConfig,
+        private readonly instanceSettingsConfig: InstanceSettingsConfig
     ) {
-        this.level = globalConfig.logging.level;
+        const isRoot = true
+        const level = "info"
+
+        this.level = globalConfig.logging.level || 'silent'
+        // this.level = globalConfig.logging.level;
         this.scopes = new Set(globalConfig.logging.scopes ?? []);
 
-        const silent = this.level === 'silent';
+        const silent = level?.toString() === 'silent';
 
         this.logger = winston.createLogger({
             level: this.level,
@@ -41,9 +45,7 @@ export class LoggerService implements LoggerType {
 
     scoped(scope: string | string[]): Logger {
         const scopes = Array.isArray(scope) ? scope : [scope];
-        const childLogger = new Logger(this.globalConfig, this.instanceSettingsConfig, {
-            isRoot: false,
-        });
+        const childLogger = new LoggerService(this.globalConfig, this.instanceSettingsConfig);
 
         childLogger.setInternalLogger(this.logger.child({ scopes }));
         return childLogger;
@@ -54,7 +56,7 @@ export class LoggerService implements LoggerType {
     }
 
     private configureTransports(config: GlobalConfig) {
-        const { outputs } = config.logging;
+        // const { outputs } = config.logging;
 
         const consoleTransport = new winston.transports.Console();
         // Set format if supported by your winston version
@@ -127,7 +129,7 @@ export class LoggerService implements LoggerType {
             winston.format.printf(({ level, message, timestamp, metadata }: { level: string; message: string; timestamp: string; metadata: unknown }) => {
                 const formattedMetadata = this.formatMetadata(metadata);
                 const levelText = level.toUpperCase().padEnd(this.noColor ? 5 : 15, ' ');
-                return `${timestamp} ${levelText} ${message}${formattedMetadata ? ' ' + pc.dim(formattedMetadata) : ''}`;
+                return `${levelText || ''} ${timestamp || ''} ${message}${JSON.stringify(formattedMetadata) ? ' ' + JSON.stringify(pc.dim(formattedMetadata)) : ''}`;
             })
         );
     }

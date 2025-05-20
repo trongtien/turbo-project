@@ -6,32 +6,13 @@ import { serve, type ServerType } from '@hono/node-server'
 export abstract class AbstractServer {
     protected app: Hono
     protected server: ServerType
-    protected loggerService: LoggerService
+    protected logger: LoggerService = container.resolve(LoggerService)
     readonly uniqueInstanceId: string;
 
     constructor() {
-        this.registerLogger()
         this.app = new Hono()
     }
 
-    private async registerLogger() {
-        // Register configurations with default values
-        const globalConfig = new GlobalConfig();
-        const instanceConfig = new InstanceSettingsConfig();
-        container.registerInstance(GlobalConfig, globalConfig);
-        container.registerInstance(InstanceSettingsConfig, instanceConfig);
-        
-        container.register<LoggerType>('LoggerService', {
-            useFactory: (depContainer) => {
-                return new LoggerService({ isRoot: true });
-            },
-        });
-
-        const loggerInit = container.resolve<LoggerType>('LoggerService');
-        
-        // this.loggerService = loggerInit
-        console.log("Type logger init", typeof loggerInit)
-    }
 
     async start(port: number) {
         try {
@@ -45,15 +26,15 @@ export abstract class AbstractServer {
                 fetch: this.app.fetch,
                 port: port
             })
-            // this.logger.info(`Service start success`)
+            this.logger.info(`Service start success`)
         } catch (error) {
-            // this.logger.error(`Service start error ${error}`)
+            this.logger.error(`Service start error ${error}`)
         }
     }
 
     async onShutdown() {
         process.on("SIGINT", () => {
-            // this.loggerService.info(`Service Close`)
+            this.logger.info(`Service Close`)
             this.server.close()
             process.exit(0)
         })
@@ -61,7 +42,7 @@ export abstract class AbstractServer {
         process.on("SIGTERM", () => {
             this.server.close((err) => {
                 if (err) {
-                    // this.loggerService.error(`${err}`)
+                    this.logger.error(`${err}`)
                     process.exit(1)
                 }
                 process.exit(0)
@@ -70,7 +51,7 @@ export abstract class AbstractServer {
     }
 
     private commonMiddlewares() {
-        
+
     }
 
     private loadRouter() {
