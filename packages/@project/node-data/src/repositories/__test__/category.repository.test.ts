@@ -1,7 +1,7 @@
-import { CategoryRepository } from 'repositories/category.repository';
+import { CategoryRepository } from '../../repositories/category.repository';
 import { InferInsertModel, InferSelectModel } from 'drizzle-orm';
-import { AbstractDatabaseConnect } from 'abstract-database-connect';
-import { categoryEntity } from 'entities';
+import { AbstractDatabaseConnect } from '../../abstract-database-connect';
+import { categoryEntity } from '../../entities';
 
 
 describe('Category Repository', () => {
@@ -15,13 +15,7 @@ describe('Category Repository', () => {
 
     beforeAll(async () => {
         connect = new AbstractDatabaseConnect()
-        await connect.initConnect({
-            host: '',
-            port: 5432,
-            username: '',
-            password: '',
-            database: '',
-        })
+        await connect.onConnect()
 
         categoryRepo = new CategoryRepository()
 

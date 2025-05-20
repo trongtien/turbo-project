@@ -1,7 +1,7 @@
 import { Config, Nested } from '@project/node-decorator';
 import { z } from 'zod';
 import { LoggingConfig } from './logging.config';
-import { DatabaseConfig } from 'database.config';
+import { DatabaseConfig } from './database.config';
 
 export { LOG_SCOPES } from './logging.config';
 export type { LogScope } from './logging.config';

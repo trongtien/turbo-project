@@ -35,6 +35,7 @@
   "dependencies": {
     "@project/node-core": "workspace:*",
     "@project/node-config": "workspace:*",
-    "@project/node-decorator": "workspace:*"
+    "@project/node-decorator": "workspace:*",
+    "@project/node-data": "workspace:*"
   }
 }

@@ -1,27 +1,36 @@
+import { Hono } from 'hono'
+import { GlobalConfig } from '@project/node-config';
 import { LoggerService } from '@project/node-core';
 import { ControllerRegistryMetadata, container } from '@project/node-decorator';
-import { Hono } from 'hono'
 import { serve, type ServerType } from '@hono/node-server'
+import { AbstractDatabaseConnect } from "@project/node-data";
 
 export abstract class AbstractServer {
     protected app: Hono
     protected server: ServerType
     protected logger: LoggerService = container.resolve(LoggerService)
-    readonly uniqueInstanceId: string;
+
+    protected readonly uniqueInstanceId: string;
+
+    protected readonly globalConfig: GlobalConfig = container.resolve(GlobalConfig)
+    private readonly abstractConnectDatabase: AbstractDatabaseConnect = container.resolve(AbstractDatabaseConnect)
+
 
     constructor() {
-        this.app = new Hono()
+      this.app = new Hono()
     }
 
+    async onInitModule(): Promise<void> {
+      await Promise.allSettled([
+          this.commonMiddlewares(),
+          this.loadRouter(),
+          this.setupCorsMiddlewares(),
+          this.abstractConnectDatabase.onConnect()
+      ])
+    }
 
     async start(port: number) {
         try {
-            await Promise.allSettled([
-                this.commonMiddlewares(),
-                this.loadRouter(),
-                this.setupCorsMiddlewares()
-            ])
-
             this.server = serve({
                 fetch: this.app.fetch,
                 port: port
@@ -79,5 +88,4 @@ export abstract class AbstractServer {
     private setupCorsMiddlewares() {
 
     }
-
 }

@@ -28,7 +28,7 @@ class LoggingConfig {
 class PostgresConfig {
     /** Postgres database name */
     @Env('DB_POSTGRES_DB_DATABASE')
-    database: string = 'n8n';
+    database: string = 'test';
 
     /** Postgres database host */
     @Env('DB_POSTGRES_DB_HOST')
@@ -36,7 +36,7 @@ class PostgresConfig {
 
     /** Postgres database password */
     @Env('DB_POSTGRES_DB_PASSWORD')
-    password: string = '';
+    password: string = '123123132';
 
     /** Postgres database port */
     @Env('DB_POSTGRES_DB_PORT')
@@ -58,8 +58,7 @@ class PostgresConfig {
     @Env('DB_POSTGRES_DB_CONNECTION_TIMEOUT')
     connectionTimeoutMs: number = 20_000;
 
-    @Nested
-    ssl: PostgresSSLConfig;
+
 }
 
 @Config
@@ -96,4 +95,7 @@ export class DatabaseConfig {
 
     @Nested
     optionConfig: PostgresConfig;
+
+    @Nested
+    ssl: PostgresSSLConfig;
 }

@@ -22,7 +22,6 @@
 	},
 	"include": ["src/**/*.ts", "test/**/*.ts"],
 	"references": [
-		{ "path": "../node-setting/tsconfig.build.json" },
         { "path": "../@project/api-types/tsconfig.build.json" },
         { "path": "../@project/node-core/tsconfig.build.json" },
         { "path": "../@project/node-data/tsconfig.build.json" },

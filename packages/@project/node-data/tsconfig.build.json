@@ -1,11 +1,11 @@
 {
 	"extends": ["./tsconfig.json", "@project/typescript-config/tsconfig.build.json"],
 	"compilerOptions": {
+		"incremental": true,
 		"composite": true,
 		"rootDir": "src",
 		"outDir": "dist",
 		"tsBuildInfoFile": "dist/build.tsbuildinfo"
-	},
-	"include": ["src/**/*.ts"],
-	"exclude": ["src/**/__tests__/**"]
+	},	"include": ["src/**/*.ts"],
+	"exclude": ["src/**/__tests__/**", "src/**/*.test.ts", "src/**/*.spec.ts"]
 }

@@ -1,10 +1,8 @@
 import { eq, InferInsertModel, InferSelectModel, SQL } from "drizzle-orm";
 import { AnyPgTable } from "drizzle-orm/pg-core";
-import { SchemaDatabaseConnect } from "types";
-import { Service } from '@project/node-decorator'
+import { SchemaDatabaseConnect } from "../types";
 import { AbstractDatabaseConnect } from "../abstract-database-connect";
 
-@Service({ singleton: true })
 export class AbstractRepository extends AbstractDatabaseConnect {
     protected table: AnyPgTable
 

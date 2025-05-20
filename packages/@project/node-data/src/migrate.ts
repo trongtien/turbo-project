@@ -1,16 +1,18 @@
 import { migrate } from "drizzle-orm/node-postgres/migrator";
-import { db } from ".";
+import { AbstractDatabaseConnect } from "./abstract-database-connect";
+import { container } from "@project/node-decorator";
 import { config } from "dotenv";
 
 config({ path: ".dev.vars" });
 
 const main = async () => {
-    try {
-        console.log("⏳ Running migrations...");
+    try {        console.log("⏳ Running migrations...");
 
         const start = Date.now();
+        const dbConnect = container.resolve(AbstractDatabaseConnect);
+        await dbConnect.onConnect();
 
-        await migrate(db, { migrationsFolder: "drizzle" });
+        await migrate(dbConnect.db, { migrationsFolder: "drizzle" });
 
         const end = Date.now();
 
