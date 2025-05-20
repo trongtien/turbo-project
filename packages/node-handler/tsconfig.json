@@ -1,7 +1,7 @@
 {
 	"extends": [
-		"@bds/typescript-config/tsconfig.common.json",
-		"@bds/typescript-config/tsconfig.backend.json"
+		"@project/typescript-config/tsconfig.common.json",
+		"@project/typescript-config/tsconfig.backend.json"
 	],
 	"compilerOptions": {
 		"rootDir": ".",
@@ -22,9 +22,9 @@
 	"include": ["src/**/*.ts", "test/**/*.ts"],
 	"references": [
 		{ "path": "../node-setting/tsconfig.build.json" },
-        { "path": "../@bds/api-types/tsconfig.build.json" },
-        { "path": "../@bds/node-core/tsconfig.build.json" },
-        { "path": "../@bds/node-data/tsconfig.build.json" },
-        { "path": "../@bds/node-decorator/tsconfig.build.json" },
+        { "path": "../@project/api-types/tsconfig.build.json" },
+        { "path": "../@project/node-core/tsconfig.build.json" },
+        { "path": "../@project/node-data/tsconfig.build.json" },
+        { "path": "../@project/node-decorator/tsconfig.build.json" },
 	]
 }

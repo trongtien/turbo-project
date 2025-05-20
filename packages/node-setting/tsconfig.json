@@ -1,7 +1,7 @@
 {
 	"extends": [
-		"@bds/typescript-config/tsconfig.common.json",
-		"@bds/typescript-config/tsconfig.backend.json"
+		"@project/typescript-config/tsconfig.common.json",
+		"@project/typescript-config/tsconfig.backend.json"
 	],
 	"compilerOptions": {
 		"outDir": "dist",
@@ -13,6 +13,6 @@
 	},
 	"include": ["commands/**/*.ts", "src/**/*.ts"],
 	"references": [
-        { "path": "../@bds/node-data/tsconfig.build.json" },
+        { "path": "../@project/node-data/tsconfig.build.json" },
 	]
 }

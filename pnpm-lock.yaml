@@ -368,30 +368,30 @@ importers:
         specifier: catalog:common
         version: 3.1.0(typescript@5.8.2)(vitest@3.1.3(@types/node@22.15.18)(jiti@2.4.2)(jsdom@20.0.3)(lightningcss@1.30.1)(sass-embedded@1.88.0)(sass@1.88.0)(terser@5.39.1)(tsx@4.19.4))
 
-  packages/@bds/api-types:
+  packages/@project/api-types:
     devDependencies:
-      '@bds/typescript-config':
+      '@project/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
 
-  packages/@bds/eslint-config: {}
+  packages/@project/eslint-config: {}
 
-  packages/@bds/node-config:
+  packages/@project/node-config:
     dependencies:
-      '@bds/node-decorator':
+      '@project/node-decorator':
         specifier: workspace:*
         version: link:../node-decorator
     devDependencies:
-      '@bds/typescript-config':
+      '@project/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
 
-  packages/@bds/node-core:
+  packages/@project/node-core:
     dependencies:
-      '@bds/node-config':
+      '@project/node-config':
         specifier: workspace:*
         version: link:../node-config
-      '@bds/node-decorator':
+      '@project/node-decorator':
         specifier: workspace:*
         version: link:../node-decorator
       callsites:
@@ -404,11 +404,11 @@ importers:
         specifier: ^3.17.0
         version: 3.17.0
     devDependencies:
-      '@bds/typescript-config':
+      '@project/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
 
-  packages/@bds/node-data:
+  packages/@project/node-data:
     dependencies:
       drizzle-orm:
         specifier: ^0.43.1
@@ -417,7 +417,7 @@ importers:
         specifier: ^8.16.0
         version: 8.16.0
     devDependencies:
-      '@bds/typescript-config':
+      '@project/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/pg':
@@ -430,15 +430,15 @@ importers:
         specifier: ^4.19.4
         version: 4.19.4
 
-  packages/@bds/node-decorator:
+  packages/@project/node-decorator:
     devDependencies:
-      '@bds/typescript-config':
+      '@project/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
 
-  packages/@bds/typescript-config: {}
+  packages/@project/typescript-config: {}
 
-  packages/@bds/vitest-config:
+  packages/@project/vitest-config:
     devDependencies:
       vite:
         specifier: catalog:common
@@ -447,7 +447,7 @@ importers:
         specifier: catalog:common
         version: 3.1.3(@types/node@22.15.18)(jiti@2.4.2)(jsdom@20.0.3)(lightningcss@1.30.1)(sass-embedded@1.88.0)(sass@1.88.0)(terser@5.39.1)(tsx@4.19.4)
 
-  packages/fe/@bds/design-layout:
+  packages/fe/@project/design-layout:
     dependencies:
       '@radix-ui/react-accordion':
         specifier: ^1.2.10
@@ -567,18 +567,18 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     devDependencies:
-      '@bds/eslint-config':
+      '@project/eslint-config':
         specifier: workspace:*
-        version: link:../../../@bds/eslint-config
-      '@bds/theme':
+        version: link:../../../@project/eslint-config
+      '@project/theme':
         specifier: workspace:*
         version: link:../theme
-      '@bds/typescript-config':
+      '@project/typescript-config':
         specifier: workspace:*
-        version: link:../../../@bds/typescript-config
-      '@bds/vitest-config':
+        version: link:../../../@project/typescript-config
+      '@project/vitest-config':
         specifier: workspace:*
-        version: link:../../../@bds/vitest-config
+        version: link:../../../@project/vitest-config
       '@types/react':
         specifier: catalog:frontend
         version: 19.1.4
@@ -604,16 +604,16 @@ importers:
         specifier: catalog:frontend
         version: 3.0.0(vite@6.3.5(@types/node@22.15.18)(jiti@2.4.2)(lightningcss@1.30.1)(sass-embedded@1.88.0)(sass@1.88.0)(terser@5.39.1)(tsx@4.19.4))
 
-  packages/fe/@bds/theme: {}
+  packages/fe/@project/theme: {}
 
   packages/fe/admin-ui:
     dependencies:
-      '@bds/design-layout':
+      '@project/design-layout':
         specifier: workspace:*
-        version: link:../@bds/design-layout
-      '@bds/theme':
+        version: link:../@project/design-layout
+      '@project/theme':
         specifier: workspace:*
-        version: link:../@bds/theme
+        version: link:../@project/theme
       curlconverter:
         specifier: ^4.12.0
         version: 4.12.0
@@ -627,12 +627,12 @@ importers:
         specifier: ^0.25.4
         version: 0.25.4
     devDependencies:
-      '@bds/typescript-config':
+      '@project/typescript-config':
         specifier: workspace:*
-        version: link:../../@bds/typescript-config
-      '@bds/vitest-config':
+        version: link:../../@project/typescript-config
+      '@project/vitest-config':
         specifier: workspace:*
-        version: link:../../@bds/vitest-config
+        version: link:../../@project/vitest-config
       '@types/react':
         specifier: catalog:frontend
         version: 19.1.4
@@ -666,29 +666,29 @@ importers:
 
   packages/node-handler:
     dependencies:
-      '@bds/node-core':
+      '@project/node-core':
         specifier: workspace:*
-        version: link:../@bds/node-core
-      '@bds/node-decorator':
+        version: link:../@project/node-core
+      '@project/node-decorator':
         specifier: workspace:*
-        version: link:../@bds/node-decorator
-      bds-node-setting:
+        version: link:../@project/node-decorator
+      project-node-setting:
         specifier: workspace:*
         version: link:../node-setting
     devDependencies:
-      '@bds/typescript-config':
+      '@project/typescript-config':
         specifier: workspace:*
-        version: link:../@bds/typescript-config
+        version: link:../@project/typescript-config
 
   packages/node-setting:
     dependencies:
-      '@bds/node-data':
+      '@project/node-data':
         specifier: workspace:*
-        version: link:../@bds/node-data
+        version: link:../@project/node-data
     devDependencies:
-      '@bds/typescript-config':
+      '@project/typescript-config':
         specifier: workspace:*
-        version: link:../@bds/typescript-config
+        version: link:../@project/typescript-config
 
 packages:
 
@@ -2690,7 +2690,7 @@ packages:
     os: [freebsd]
 
   '@rollup/rollup-linux-arm-gnueabihf@4.40.2':
-    resolution: {integrity: sha512-de6TFZYIvJwRNjmW3+gaXiZ2DaWL5D5yGmSYzkdzjBDS3W+B9JQ48oZEsmMvemqjtAFzE16DIBLqd6IQQRuG9Q==}
+    resolution: {integrity: sha512-de6TFZYIvJwRNjmW3+gaXiZ2DaWL5D5yGmSYzkdzjproject3W+B9JQ48oZEsmMvemqjtAFzE16DIBLqd6IQQRuG9Q==}
     cpu: [arm]
     os: [linux]
 
@@ -6148,7 +6148,7 @@ packages:
     engines: {node: '>=0.10.0'}
 
   source-map-support@0.5.13:
-    resolution: {integrity: sha512-SHSKFHadjVA5oR4PPqhtAVdcBWwRYVd6g6cAXnIbRiIwc2EhPrTuKUBdSLvlEKyIP3GCf89fltvcZiP9MMFA1w==}
+    resolution: {integrity: sha512-SHSKFHadjVA5oR4PPqhtAVdcBWwRYVd6g6cAXnIbRiIwc2EhPrTuKUprojectLvlEKyIP3GCf89fltvcZiP9MMFA1w==}
 
   source-map-support@0.5.21:
     resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}

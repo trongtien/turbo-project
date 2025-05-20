@@ -11,12 +11,12 @@
     "start": "run-script-os",
     "build:fe:admin": "turbo run build:fe:admin",
     "dev:fe": "run-p dev:fe:*",
-    "dev:fe:ui": "turbo run dev --parallel --env-mode=loose --filter=@bds/design-layout",
-    "dev:fe:admin": "turbo run dev --parallel --env-mode=loose --filter=bds-admin-ui",
+    "dev:fe:ui": "turbo run dev --parallel --env-mode=loose --filter=@project/design-layout",
+    "dev:fe:admin": "turbo run dev --parallel --env-mode=loose --filter=project-admin-ui",
     "dev:be": "run-p dev:be:*",
-    "dev:be:ignore": "turbo run dev --parallel --env-mode=loose --filter=!@bds/design-layout --filter=!bds-admin-ui",
-    "dev:be:decorator": "turbo run dev --parallel --env-mode=loose --filter=@bds/node-decorator ",
-    "dev:be:handler": "turbo run dev --parallel --env-mode=loose --filter=@bds/node-decorator --filter=bds-node-handler --filter=!@bds/design-layout --filter=!bds-admin-ui"
+    "dev:be:ignore": "turbo run dev --parallel --env-mode=loose --filter=!@project/design-layout --filter=!project-admin-ui",
+    "dev:be:decorator": "turbo run dev --parallel --env-mode=loose --filter=@project/node-decorator ",
+    "dev:be:handler": "turbo run dev --parallel --env-mode=loose --filter=@project/node-decorator --filter=project-node-handler --filter=!@project/design-layout --filter=!project-admin-ui"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:common",

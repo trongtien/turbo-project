@@ -1,0 +1,15 @@
+{
+	"extends": [
+		"@project/typescript-config/tsconfig.common.json",
+		"@project/typescript-config/tsconfig.backend.json"
+	],
+	"compilerOptions": {
+		"outDir": "dist",
+		"preserveSymlinks": true,
+		"tsBuildInfoFile": "dist/build.tsbuildinfo",
+		// TODO: remove all options below this line
+		"useUnknownInCatchVariables": false
+	},
+	"include": ["commands/**/*.ts", "src/**/*.ts"],
+	"references": [{ "path": "../node-decorator/tsconfig.build.json" }, { "path": "../node-config/tsconfig.build.json" }]
+}

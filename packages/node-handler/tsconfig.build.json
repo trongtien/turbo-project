@@ -1,5 +1,5 @@
 {
-	"extends": ["./tsconfig.json", "@bds/typescript-config/tsconfig.build.json"],
+	"extends": ["./tsconfig.json", "@project/typescript-config/tsconfig.build.json"],
 	"compilerOptions": {
 		"rootDir": "src",
 		"outDir": "dist",

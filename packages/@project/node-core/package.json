@@ -1,0 +1,48 @@
+{
+  "name": "@project/node-core",
+  "version": "1.0.0",
+  "description": "CLI to simplify n8n credentials/node development",
+  "main": "dist/src/index",
+  "types": "dist/src/index.d.ts",
+  "oclif": {
+    "commands": "./dist/commands",
+    "bin": "project-node-core"
+  },
+  "scripts": {
+    "clean": "rimraf dist .turbo",
+    "dev": "pnpm watch",
+    "build": "tsc --noEmit",
+    "build-node-dev": "tsc",
+    "format": "biome format --write .",
+    "format:check": "biome ci .",
+    "lint": "eslint . --quiet",
+    "lintfix": "eslint . --fix",
+    "prepack": "echo \"Building project...\" && rm -rf dist && tsc -b",
+    "watch": "tsc --watch"
+  },
+  "bin": {
+    "project-node-dev": "./bin/project-node-core"
+  },
+  "keywords": [
+    "development",
+    "node",
+    "helper",
+    "project"
+  ],
+  "files": [
+    "bin",
+    "dist",
+    "templates",
+    "src/tsconfig-build.json"
+  ],
+  "devDependencies": {
+    "@project/typescript-config": "workspace:*"
+  },
+  "dependencies": {
+    "@project/node-decorator": "workspace:*",
+    "@project/node-config": "workspace:*",
+    "callsites": "^4.2.0",
+    "picocolors": "^1.1.1",
+    "winston": "^3.17.0"
+  }
+}

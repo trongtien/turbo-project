@@ -1,5 +1,5 @@
 {
-  "name": "bds-admin-ui",
+  "name": "project-admin-ui",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -16,16 +16,16 @@
     "test:dev": "vitest --silent=false"
   },
   "dependencies": {
-    "@bds/theme": "workspace:*",
-    "@bds/design-layout": "workspace:*",
+    "@project/theme": "workspace:*",
+    "@project/design-layout": "workspace:*",
     "react": "catalog:frontend",
     "react-dom": "catalog:frontend",
     "curlconverter": "^4.12.0",
     "web-tree-sitter": "^0.25.4"
   },
   "devDependencies": {
-    "@bds/typescript-config": "workspace:*",
-    "@bds/vitest-config": "workspace:*",
+    "@project/typescript-config": "workspace:*",
+    "@project/vitest-config": "workspace:*",
     "@types/react": "catalog:frontend",
     "@types/react-dom": "catalog:frontend",
     "@vitejs/plugin-legacy": "catalog:frontend",

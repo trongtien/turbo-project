@@ -1,1 +1,1 @@
-export default ['packages/fe', 'packages/fe/@bds'];
+export default ['packages/fe', 'packages/fe/@project'];

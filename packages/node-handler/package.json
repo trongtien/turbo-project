@@ -1,23 +1,23 @@
 {
-  "name": "bds-node-handler",
+  "name": "project-node-handler",
   "version": "1.93.0",
-  "description": "bds handler app back end",
+  "description": "project handler app back end",
   "main": "dist/index",
   "types": "dist/index.d.ts",
   "oclif": {
     "commands": "./dist/commands",
     "helpClass": "./dist/help",
-    "bin": "bds"
+    "bin": "project"
   },
   "scripts": {
     "dev": "concurrently -k -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold\" \"npm run watch\" \"pnpm exec nodemon\"",
     "watch": "tsc-watch -p tsconfig.build.json --onCompilationComplete \"tsc-alias -p tsconfig.build.json\""
   },
   "bin": {
-    "bds": "./bin/bds"
+    "project": "./bin/project"
   },
   "keywords": [
-    "bds",
+    "project",
     "setting"
   ],
   "engines": {
@@ -30,11 +30,11 @@
     "!dist/**/e2e.*"
   ],
   "devDependencies": {
-    "@bds/typescript-config": "workspace:*"
+    "@project/typescript-config": "workspace:*"
   },
   "dependencies": {
-    "bds-node-setting": "workspace:*",
-    "@bds/node-core": "workspace:*",
-    "@bds/node-decorator": "workspace:*"
+    "project-node-setting": "workspace:*",
+    "@project/node-core": "workspace:*",
+    "@project/node-decorator": "workspace:*"
   }
 }

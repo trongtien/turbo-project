@@ -1,0 +1,25 @@
+{
+  "name": "@project/vitest-config",
+  "version": "1.0.0",
+  "type": "module",
+  "peerDependencies": {
+    "vite": "catalog:common",
+    "vitest": "catalog:common"
+  },
+  "devDependencies": {
+    "vite": "catalog:common",
+    "vitest": "catalog:common"
+  },
+  "files": [
+    "frontend.mjs"
+  ],
+  "exports": {
+    "./frontend": {
+      "import": "./frontend.mjs",
+      "require": "./frontend.mjs",
+      "types": "./frontend.d.ts"
+    },
+    "./*": "./*"
+  },
+  "license": "See LICENSE.md file in the root of the repository"
+}

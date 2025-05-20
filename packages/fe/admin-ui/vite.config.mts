@@ -6,7 +6,7 @@ import svgr from 'vite-plugin-svgr';
 import fs from 'fs';
 import tailwindcss from '@tailwindcss/vite';
 
-import { vitestConfig } from '@bds/vitest-config/frontend';
+import { vitestConfig } from '@project/vitest-config/frontend';
 import icons from 'unplugin-icons/vite';
 
 import browserslistToEsbuild from 'browserslist-to-esbuild';
@@ -23,12 +23,12 @@ const browsers = browserslist.loadConfig({ path: process.cwd() });
 const alias = [
 	{ find: '@admin-ui', replacement: resolve(__dirname, 'src') },
 	{
-		find: /^@bds\/theme(.+)$/,
-		replacement: resolve(packagesDir, 'fe', '@bds', 'theme$1'),
+		find: /^@project\/theme(.+)$/,
+		replacement: resolve(packagesDir, 'fe', '@project', 'theme$1'),
 	},
 	{
-		find: /^@bds\/design-layout(.+)$/,
-		replacement: resolve(packagesDir, 'fe', '@bds', 'design-layout', 'src$1'),
+		find: /^@project\/design-layout(.+)$/,
+		replacement: resolve(packagesDir, 'fe', '@project', 'design-layout', 'src$1'),
 	},
 	...['orderBy', 'camelCase', 'cloneDeep', 'startCase'].map((name) => ({
 		find: new RegExp(`^lodash.${name}$`, 'i'),
@@ -103,7 +103,7 @@ export default mergeConfig(
 		css: {
 			preprocessorOptions: {
 				scss: {
-					additionalData: ['', '@use "@bds/theme/bds-theme-variables.scss" as *;'].join('\n'),
+					additionalData: ['', '@use "@project/theme/project-theme-variables.scss" as *;'].join('\n'),
 				},
 			},
 		},
@@ -115,7 +115,7 @@ export default mergeConfig(
 				output: {
 					manualChunks: {
 						vendors: ['react', 'react-dom', ''],
-						workspace: ['@bds/design-layout'],
+						workspace: ['@project/design-layout'],
 					},
 				},
 			},

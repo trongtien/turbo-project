@@ -11,7 +11,7 @@
 			"persistent": true
 		},
     "build:fe:admin": {
-			"dependsOn": ["bds-admin-ui#build"]
+			"dependsOn": ["project-admin-ui#build"]
 		},
     "build": {
       "dependsOn": ["^build"],
@@ -28,7 +28,7 @@
     },
     "lint:fe": {
 			"dependsOn": [
-				"bds-admin-ui"
+				"project-admin-ui"
 			]
 		}
   }

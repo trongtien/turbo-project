@@ -1,0 +1,17 @@
+{
+  "name": "@project/theme",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "project-theme-variables.scss"
+  ],
+  "exports": {
+    "./project-theme-variables.scss": "./project-theme-variables.scss",
+    "./*": "./*"
+  } 
+}

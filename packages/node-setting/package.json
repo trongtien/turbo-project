@@ -1,12 +1,12 @@
 {
-  "name": "bds-node-setting",
+  "name": "project-node-setting",
   "version": "1.0.0",
   "description": "CLI to simplify n8n credentials/node development",
   "main": "dist/src/index",
   "types": "dist/src/index.d.ts",
   "oclif": {
     "commands": "./dist/commands",
-    "bin": "bds-node-setting"
+    "bin": "project-node-setting"
   },
   "scripts": {
     "clean": "rimraf dist .turbo",
@@ -21,13 +21,13 @@
     "watch": "tsc --watch"
   },
   "bin": {
-    "bds-node-dev": "./bin/bds-node-dev"
+    "project-node-dev": "./bin/project-node-dev"
   },
   "keywords": [
     "development",
     "node",
     "helper",
-    "bds"
+    "project"
   ],
   "files": [
     "bin",
@@ -36,9 +36,9 @@
     "src/tsconfig-build.json"
   ],
   "devDependencies": {
-    "@bds/typescript-config": "workspace:*"
+    "@project/typescript-config": "workspace:*"
   },
   "dependencies": {
-   "@bds/node-data": "workspace:*"
+   "@project/node-data": "workspace:*"
   }
 }

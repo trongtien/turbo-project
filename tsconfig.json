@@ -2,6 +2,6 @@
   "compilerOptions": {
     "jsx": "react"
   },
-  "extends": "./packages/@bds/typescript-config/tsconfig.common.json",
+  "extends": "./packages/@project/typescript-config/tsconfig.common.json",
   "exclude": ["**/dist/**/*", "**/node_modules/**/*"]
 }

@@ -1,8 +1,8 @@
 packages:
   - "packages/*"
-  - "packages/@bds/*"
+  - "packages/@project/*"
   - "packages/fe/*"
-  - "packages/fe/@bds/*"
+  - "packages/fe/@project/*"
   - "packages/node-handler/*"
   - "packages/node-core/*"
 

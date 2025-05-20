@@ -1,9 +1,9 @@
-import { ControllerRegistryMetadata, container } from '@bds/node-decorator';
+import { ControllerRegistryMetadata, container } from '@project/node-decorator';
 import { Hono } from 'hono'
 import { logger } from 'hono/logger'
 import { serve, type ServerType } from '@hono/node-server'
 
-console.log("@bds/node-decorator", typeof ControllerRegistryMetadata)
+console.log("@project/node-decorator", typeof ControllerRegistryMetadata)
 
 export abstract class AbstractServer {
     protected app: Hono
