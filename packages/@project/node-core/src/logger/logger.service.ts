@@ -1,7 +1,7 @@
 import { Service } from '@project/node-decorator';
 import { GlobalConfig, InstanceSettingsConfig } from '@project/node-config';
 import * as LoggerProxy from './logger-proxy';
-
+import path from 'path'
 import winston from 'winston';
 import pc from 'picocolors';
 import { basename } from 'node:path';
@@ -22,10 +22,9 @@ export class LoggerService implements LoggerType {
         private readonly instanceSettingsConfig: InstanceSettingsConfig
     ) {
         const isRoot = true
-        const level = "info"
+        const level = globalConfig.logging.level
 
-        this.level = globalConfig.logging.level || 'silent'
-        // this.level = globalConfig.logging.level;
+        this.level = level
         this.scopes = new Set(globalConfig.logging.scopes ?? []);
 
         const silent = level?.toString() === 'silent';
@@ -56,41 +55,35 @@ export class LoggerService implements LoggerType {
     }
 
     private configureTransports(config: GlobalConfig) {
-        // const { outputs } = config.logging;
+        const { outputs } = config.logging;
 
-        const consoleTransport = new winston.transports.Console();
-        // Set format if supported by your winston version
-        // @ts-expect-error: format is supported in recent winston versions
-        consoleTransport.format = this.consoleFormat();
-        this.logger.add(consoleTransport);
+        if (outputs.includes('console')) {
+            const consoleTransport = new winston.transports.Console();
+            // Set format if supported by your winston version
+            // @ts-expect-error: format is supported in recent winston versions
+            consoleTransport.format = this.consoleFormat();
+            this.logger.add(consoleTransport);
+        }
 
-        // if (outputs.includes('console')) {
-        //     const consoleTransport = new winston.transports.Console();
-        //     // Set format if supported by your winston version
-        //     // @ts-expect-error: format is supported in recent winston versions
-        //     consoleTransport.format = this.consoleFormat();
-        //     this.logger.add(consoleTransport);
-        // }
+        if (outputs.includes('file')) {
+            const filename = path.join(
+                this.instanceSettingsConfig.projectFolder,
+                config.logging.file.location
+            );
 
-        // if (outputs.includes('file')) {
-        //     const filename = path.join(
-        //         this.instanceSettingsConfig.n8nFolder,
-        //         config.logging.file.location
-        //     );
-
-        //     this.logger.add(
-        //         new winston.transports.File({
-        //             filename,
-        //             format: winston.format.combine(
-        //                 winston.format.timestamp(),
-        //                 winston.format.metadata(),
-        //                 winston.format.json()
-        //             ),
-        //             maxsize: config.logging.file.fileSizeMax * 1_048_576,
-        //             maxFiles: config.logging.file.fileCountMax,
-        //         })
-        //     );
-        // }
+            const fileTransport = new winston.transports.File({
+                filename,
+                maxsize: config.logging.file.fileSizeMax * 1_048_576,
+                maxFiles: config.logging.file.fileCountMax,
+            });
+            // @ts-expect-error: format is supported in recent winston versions
+            fileTransport.format = winston.format.combine(
+                winston.format.timestamp(),
+                winston.format.metadata(),
+                winston.format.json()
+            );
+            this.logger.add(fileTransport);
+        }
     }
 
     private disableLowerLevels() {
@@ -109,6 +102,7 @@ export class LoggerService implements LoggerType {
     }
 
     private log(level: LogLevel, message: string, metadata: LogMetadata) {
+
         const location: LogLocationMetadata = {};
 
         const caller = callsites().at(2);
@@ -117,7 +111,11 @@ export class LoggerService implements LoggerType {
             location.function = caller.getFunctionName() ?? '';
         }
 
-        this.logger.log(level, message, { ...metadata, ...location });
+        const fileLocationPath = location?.file ? `file: ${location?.file}, ` : ""
+        const fileLocationSymbol = location?.function ? `function: ${location?.function}` : ""
+        const stringMsg = `{ ${fileLocationPath} ${fileLocationSymbol} } ${message || ''}`
+
+        this.logger.log(level, stringMsg, { ...metadata });
     }
 
     private consoleFormat() {
@@ -126,11 +124,14 @@ export class LoggerService implements LoggerType {
             winston.format.metadata(),
             this.noColor ? winston.format.uncolorize() : winston.format.colorize({ all: true }),
             this.scopeFilter(),
-            winston.format.printf(({ level, message, timestamp, metadata }: { level: string; message: string; timestamp: string; metadata: unknown }) => {
-                const formattedMetadata = this.formatMetadata(metadata);
-                const levelText = level.toUpperCase().padEnd(this.noColor ? 5 : 15, ' ');
-                return `${levelText || ''} ${timestamp || ''} ${message}${JSON.stringify(formattedMetadata) ? ' ' + JSON.stringify(pc.dim(formattedMetadata)) : ''}`;
-            })
+            // winston.format.printf(({ level, message, metadata, timestamp }: { level: string; message: string; timestamp: string; metadata: unknown }) => {
+            // console.table({
+            //     level, message, timestamp, metadata
+            // })
+            // const formattedMetadata = this.formatMetadata(metadata);
+            // const levelText = level.toUpperCase().padEnd(this.noColor ? 5 : 15, ' ');
+            // return `${levelText || ''} ${timestamp || ''} ${message}${JSON.stringify(formattedMetadata) ? ' ' + JSON.stringify(pc.dim(formattedMetadata)) : ''}`;
+            // })
         );
     }
 
@@ -143,12 +144,12 @@ export class LoggerService implements LoggerType {
         })();
     }
 
-    private formatMetadata(metadata: unknown): string {
-        if (metadata && typeof metadata === 'object' && Object.keys(metadata).length) {
-            return JSON.stringify(metadata, null, 2);
-        }
-        return '';
-    }
+    // private formatMetadata(metadata: unknown): string {
+    //     if (metadata && typeof metadata === 'object' && Object.keys(metadata).length) {
+    //         return JSON.stringify(metadata, null, 2);
+    //     }
+    //     return '';
+    // }
 
     private devTsFormat() {
         const now = new Date();
