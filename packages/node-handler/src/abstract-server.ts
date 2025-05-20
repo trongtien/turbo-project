@@ -1,18 +1,36 @@
+import { LoggerService } from '@project/node-core';
 import { ControllerRegistryMetadata, container } from '@project/node-decorator';
 import { Hono } from 'hono'
-import { logger } from 'hono/logger'
 import { serve, type ServerType } from '@hono/node-server'
-
-console.log("@project/node-decorator", typeof ControllerRegistryMetadata)
 
 export abstract class AbstractServer {
     protected app: Hono
     protected server: ServerType
+    protected loggerService: LoggerService
     readonly uniqueInstanceId: string;
 
-
     constructor() {
+        this.registerLogger()
         this.app = new Hono()
+    }
+
+    private async registerLogger() {
+        // Register configurations with default values
+        const globalConfig = new GlobalConfig();
+        const instanceConfig = new InstanceSettingsConfig();
+        container.registerInstance(GlobalConfig, globalConfig);
+        container.registerInstance(InstanceSettingsConfig, instanceConfig);
+        
+        container.register<LoggerType>('LoggerService', {
+            useFactory: (depContainer) => {
+                return new LoggerService({ isRoot: true });
+            },
+        });
+
+        const loggerInit = container.resolve<LoggerType>('LoggerService');
+        
+        // this.loggerService = loggerInit
+        console.log("Type logger init", typeof loggerInit)
     }
 
     async start(port: number) {
@@ -27,13 +45,15 @@ export abstract class AbstractServer {
                 fetch: this.app.fetch,
                 port: port
             })
+            // this.logger.info(`Service start success`)
         } catch (error) {
-
+            // this.logger.error(`Service start error ${error}`)
         }
     }
 
     async onShutdown() {
         process.on("SIGINT", () => {
+            // this.loggerService.info(`Service Close`)
             this.server.close()
             process.exit(0)
         })
@@ -41,7 +61,7 @@ export abstract class AbstractServer {
         process.on("SIGTERM", () => {
             this.server.close((err) => {
                 if (err) {
-                    console.error(err)
+                    // this.loggerService.error(`${err}`)
                     process.exit(1)
                 }
                 process.exit(0)
@@ -50,12 +70,12 @@ export abstract class AbstractServer {
     }
 
     private commonMiddlewares() {
-        this.app.use(logger())
+        
     }
 
     private loadRouter() {
         const registry = container.resolve(ControllerRegistryMetadata);
-        console.log("Load router", registry)
+
         const controllers = registry.getAll();
         for (const [ControllerClass, meta] of controllers) {
             const instance = container.resolve(ControllerClass as any);

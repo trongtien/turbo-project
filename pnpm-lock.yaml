@@ -666,15 +666,15 @@ importers:
 
   packages/node-handler:
     dependencies:
+      '@project/node-config':
+        specifier: workspace:*
+        version: link:../@project/node-config
       '@project/node-core':
         specifier: workspace:*
         version: link:../@project/node-core
       '@project/node-decorator':
         specifier: workspace:*
         version: link:../@project/node-decorator
-      project-node-setting:
-        specifier: workspace:*
-        version: link:../node-setting
     devDependencies:
       '@project/typescript-config':
         specifier: workspace:*
@@ -2690,7 +2690,7 @@ packages:
     os: [freebsd]
 
   '@rollup/rollup-linux-arm-gnueabihf@4.40.2':
-    resolution: {integrity: sha512-de6TFZYIvJwRNjmW3+gaXiZ2DaWL5D5yGmSYzkdzjproject3W+B9JQ48oZEsmMvemqjtAFzE16DIBLqd6IQQRuG9Q==}
+    resolution: {integrity: sha512-de6TFZYIvJwRNjmW3+gaXiZ2DaWL5D5yGmSYzkdzjBDS3W+B9JQ48oZEsmMvemqjtAFzE16DIBLqd6IQQRuG9Q==}
     cpu: [arm]
     os: [linux]
 
@@ -6148,7 +6148,7 @@ packages:
     engines: {node: '>=0.10.0'}
 
   source-map-support@0.5.13:
-    resolution: {integrity: sha512-SHSKFHadjVA5oR4PPqhtAVdcBWwRYVd6g6cAXnIbRiIwc2EhPrTuKUprojectLvlEKyIP3GCf89fltvcZiP9MMFA1w==}
+    resolution: {integrity: sha512-SHSKFHadjVA5oR4PPqhtAVdcBWwRYVd6g6cAXnIbRiIwc2EhPrTuKUBdSLvlEKyIP3GCf89fltvcZiP9MMFA1w==}
 
   source-map-support@0.5.21:
     resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}

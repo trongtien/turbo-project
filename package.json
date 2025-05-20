@@ -16,7 +16,7 @@
     "dev:be": "run-p dev:be:*",
     "dev:be:ignore": "turbo run dev --parallel --env-mode=loose --filter=!@project/design-layout --filter=!project-admin-ui",
     "dev:be:decorator": "turbo run dev --parallel --env-mode=loose --filter=@project/node-decorator ",
-    "dev:be:handler": "turbo run dev --parallel --env-mode=loose --filter=@project/node-decorator --filter=project-node-handler --filter=!@project/design-layout --filter=!project-admin-ui"
+    "dev:be:handler": "turbo run dev --parallel --env-mode=loose --filter=@project/node-decorator --filter=@project/node-core --filter=@project/node-config --filter=project-node-handler --filter=!@project/design-layout --filter=!project-admin-ui"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:common",

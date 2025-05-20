@@ -11,5 +11,8 @@
 		"useUnknownInCatchVariables": false
 	},
 	"include": ["commands/**/*.ts", "src/**/*.ts"],
-	"references": [{ "path": "../node-decorator/tsconfig.build.json" }, { "path": "../node-config/tsconfig.build.json" }]
+	"references": [
+		{ "path": "../node-decorator/tsconfig.build.json" },
+		{ "path": "../node-config/tsconfig.build.json" }
+	]
 }

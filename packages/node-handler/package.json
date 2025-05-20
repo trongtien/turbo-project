@@ -33,8 +33,8 @@
     "@project/typescript-config": "workspace:*"
   },
   "dependencies": {
-    "project-node-setting": "workspace:*",
     "@project/node-core": "workspace:*",
+    "@project/node-config": "workspace:*",
     "@project/node-decorator": "workspace:*"
   }
 }

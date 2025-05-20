@@ -11,15 +11,14 @@ import { LOG_LEVELS, LogLevel, LogLocationMetadata, LogMetadata, Logger as Logge
 const noOp = () => { };
 
 @Service({ singleton: true })
-export class Logger implements LoggerType {
+export class LoggerService implements LoggerType {
     private logger: winston.Logger;
     private readonly level: LogLevel;
     private readonly scopes: Set<string>;
     private readonly noColor = !!process.env.NO_COLOR;
-
+    private readonly globalConfig: GlobalConfig
+    private readonly instanceSettingsConfig: InstanceSettingsConfig
     constructor(
-        private readonly globalConfig: GlobalConfig,
-        private readonly instanceSettingsConfig: InstanceSettingsConfig,
         { isRoot }: { isRoot?: boolean } = { isRoot: true }
     ) {
         this.level = globalConfig.logging.level;
