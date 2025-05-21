@@ -13,44 +13,70 @@ export class AbstractRepository extends AbstractDatabaseConnect {
     }
 
     async findMany() {
-        return await this.db.select().from(this.table);
+        try {
+            const result = await this.db.select().from(this.table);
+            return this.Ok(result)
+        } catch (error) {
+            return this.Err(error)
+        }
     }
 
     async findById(id: string) {
-        const [record] = await this.db.select().from(this.table)
-            .where(eq(this.keyTable(), id))
+        try {
+            const [record] = await this.db.select().from(this.table)
+                .where(eq(this.keyTable(), id))
 
-        return record;
+            return this.Ok(record);
+        } catch (error) {
+            return this.Err(error)
+        }
     }
 
     async create(data: InferInsertModel<typeof this.table>) {
-        return await this.db.insert(this.table).values(data).returning()
+        try {
+            const record = await this.db.insert(this.table).values(data).returning()
+            return this.Ok(record)
+        } catch (error) {
+            return this.Err(error)
+        }
     }
 
     async update(id: string, data: InferSelectModel<typeof this.table>) {
-        const [record] = await this.db.update(this.table)
-            .set(data)
-            .where(eq(this.keyTable(), id))
-            .returning()
-        return record
+        try {
+            const [record] = await this.db.update(this.table)
+                .set(data)
+                .where(eq(this.keyTable(), id))
+                .returning()
+            return this.Ok(record)
+        } catch (error) {
+            return this.Err(error)
+        }
     }
 
     async findOne(conditions: Partial<typeof this.table>) {
-        const [record] = await this.db
-            .select()
-            .from(this.table)
-            .where(this.createWhereClause(conditions)[0]);
+        try {
+            const [record] = await this.db
+                .select()
+                .from(this.table)
+                .where(this.createWhereClause(conditions)[0]);
 
-        return record || null;
+            return this.Ok(record || null);
+        } catch (error) {
+            return this.Err(error)
+        }
     }
 
     async delete(id: string) {
-        const [result] = await this.db
-            .delete(this.table)
-            .where(eq(this.keyTable(), id))
-            .returning();
+        try {
+            const [result] = await this.db
+                .delete(this.table)
+                .where(eq(this.keyTable(), id))
+                .returning();
 
-        return result;
+            return this.Ok(result);
+        } catch (error) {
+            return this.Err(error)
+        }
     }
 
     protected createWhereClause(conditions: Partial<typeof this.table>): SQL[] {
