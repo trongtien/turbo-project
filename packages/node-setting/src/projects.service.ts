@@ -9,12 +9,11 @@ export class ProjectsService extends BaseService {
     }
 
     async create(data: { name: string, description?: string }) {
-        try {
-            const result = await this.projectsRepository.create(data)
-            
-            return this.Ok(result)
-        } catch (error) {
-            return this.Err(error)
+        const result = await this.projectsRepository.create(data)
+        if (!result.success) {
+            return this.Err(result.error)
         }
+
+        return this.Ok(result)
     }
 }

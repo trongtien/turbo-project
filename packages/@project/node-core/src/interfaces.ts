@@ -13,3 +13,6 @@ export type ServiceResult<T> = {
         status?: number;
     };
 }
+
+
+export type TypeError = 'repository'

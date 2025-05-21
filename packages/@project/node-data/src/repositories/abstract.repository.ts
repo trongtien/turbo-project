@@ -1,3 +1,4 @@
+import { RepositoryError } from '@project/node-core';
 import { eq, InferInsertModel, InferSelectModel, SQL } from "drizzle-orm";
 import { AnyPgTable } from "drizzle-orm/pg-core";
 import { SchemaDatabaseConnect } from "../types";
@@ -17,7 +18,7 @@ export class AbstractRepository extends AbstractDatabaseConnect {
             const result = await this.db.select().from(this.table);
             return this.Ok(result)
         } catch (error) {
-            return this.Err(error)
+            return this.Err(new RepositoryError(`${error}`).toJSON())
         }
     }
 
@@ -28,7 +29,7 @@ export class AbstractRepository extends AbstractDatabaseConnect {
 
             return this.Ok(record);
         } catch (error) {
-            return this.Err(error)
+            return this.Err(new RepositoryError(`${error}`).toJSON())
         }
     }
 
@@ -37,7 +38,7 @@ export class AbstractRepository extends AbstractDatabaseConnect {
             const record = await this.db.insert(this.table).values(data).returning()
             return this.Ok(record)
         } catch (error) {
-            return this.Err(error)
+            return this.Err(new RepositoryError(`${error}`).toJSON())
         }
     }
 
@@ -49,7 +50,7 @@ export class AbstractRepository extends AbstractDatabaseConnect {
                 .returning()
             return this.Ok(record)
         } catch (error) {
-            return this.Err(error)
+            return this.Err(new RepositoryError(`${error}`).toJSON())
         }
     }
 
@@ -62,7 +63,7 @@ export class AbstractRepository extends AbstractDatabaseConnect {
 
             return this.Ok(record || null);
         } catch (error) {
-            return this.Err(error)
+            return this.Err(new RepositoryError(`${error}`).toJSON())
         }
     }
 
@@ -75,7 +76,7 @@ export class AbstractRepository extends AbstractDatabaseConnect {
 
             return this.Ok(result);
         } catch (error) {
-            return this.Err(error)
+            return this.Err(new RepositoryError(`${error}`).toJSON())
         }
     }
 
