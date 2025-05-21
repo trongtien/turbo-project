@@ -5,7 +5,6 @@
   "main": "dist/src/index",
   "types": "dist/src/index.d.ts",
   "oclif": {
-    "commands": "./dist/commands",
     "bin": "project-node-setting"
   },
   "scripts": {
@@ -26,7 +25,7 @@
   "keywords": [
     "development",
     "node",
-    "helper",
+    "service",
     "project"
   ],
   "files": [
@@ -39,6 +38,9 @@
     "@project/typescript-config": "workspace:*"
   },
   "dependencies": {
-   "@project/node-data": "workspace:*"
+   "@project/node-data": "workspace:*",
+   "@project/node-decorator": "workspace:*",
+   "@project/node-core": "workspace:*",
+   "@project/node-config": "workspace:*"
   }
 }

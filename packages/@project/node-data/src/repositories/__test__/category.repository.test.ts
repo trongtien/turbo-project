@@ -3,7 +3,6 @@ import { InferInsertModel, InferSelectModel } from 'drizzle-orm';
 import { AbstractDatabaseConnect } from '../../abstract-database-connect';
 import { categoryEntity } from '../../entities';
 
-
 describe('Category Repository', () => {
     let connect: AbstractDatabaseConnect
     let categoryRepo: CategoryRepository

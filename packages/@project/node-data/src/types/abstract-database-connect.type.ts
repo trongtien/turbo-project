@@ -1,8 +1,10 @@
-import { categoryEntity } from "entities"
+import { categoriesEntity, projectsEntity, projectsCategoriesEntity } from "entities"
 
 
 
 
 export type SchemaDatabaseConnect = {
-    category: typeof categoryEntity
+    categories: typeof categoriesEntity,
+    projects: typeof projectsEntity,
+    projectsCategories: typeof projectsCategoriesEntity
 }

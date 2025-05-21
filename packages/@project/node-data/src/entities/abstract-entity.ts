@@ -7,7 +7,7 @@ import {
 import { sql } from "drizzle-orm";
 
 export const abstractEntity = {
-    id: uuid('uuid2').default(sql`gen_random_uuid()`).primaryKey(),
+    id: uuid('id').default(sql`gen_random_uuid()`).primaryKey(),
     is_deleted: boolean('is_deleted').default(false),
 
     utc_created_on: timestamp('utc_created_on', { mode: 'string' }).notNull().defaultNow(),

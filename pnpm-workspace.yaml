@@ -5,6 +5,7 @@ packages:
   - "packages/fe/@project/*"
   - "packages/node-handler/*"
   - "packages/node-core/*"
+  - "packages/node-setting/*"
 
 catalog:
 

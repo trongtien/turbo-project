@@ -1,7 +1,7 @@
 import { Pool, type PoolClient } from "pg";
 import { drizzle, NodePgDatabase } from "drizzle-orm/node-postgres";
 import type { SchemaDatabaseConnect } from "./types/abstract-database-connect.type";
-import { categoryEntity } from "./entities";
+import { categoriesEntity, projectsCategoriesEntity, projectsEntity } from "./entities";
 import { Service, container } from '@project/node-decorator'
 import { GlobalConfig } from '@project/node-config'
 import { LoggerService } from '@project/node-core'
@@ -16,12 +16,9 @@ export class AbstractDatabaseConnect {
   private readonly logger: LoggerService = container.resolve(LoggerService)
   private readonly globalConfig = container.resolve(GlobalConfig)
 
-  constructor() {
-    // Initialize properties in onInitModule
-  }
-
   get client(): PoolClient {
     return this._client;
+
   }
 
   get db() {
@@ -30,7 +27,9 @@ export class AbstractDatabaseConnect {
 
   get schema(): SchemaDatabaseConnect {
     return {
-      category: categoryEntity
+      categories: categoriesEntity,
+      projects: projectsEntity,
+      projectsCategories: projectsCategoriesEntity
     }
   }
 

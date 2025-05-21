@@ -9,14 +9,16 @@
   "author": "will",
   "scripts": {
     "start": "run-script-os",
+    "build": "turbo run build",
+    "build:backend": "turbo run build:backend",
     "build:fe:admin": "turbo run build:fe:admin",
     "dev:fe": "run-p dev:fe:*",
     "dev:fe:ui": "turbo run dev --parallel --env-mode=loose --filter=@project/design-layout",
     "dev:fe:admin": "turbo run dev --parallel --env-mode=loose --filter=project-admin-ui",
-    "dev:be": "run-p dev:be:*",
-    "dev:be:ignore": "turbo run dev --parallel --env-mode=loose --filter=!@project/design-layout --filter=!project-admin-ui",
-    "dev:be:decorator": "turbo run dev --parallel --env-mode=loose --filter=@project/node-decorator ",
-    "dev:be:handler": "turbo run dev --parallel --env-mode=loose --filter=@project/node-decorator --filter=@project/node-core --filter=@project/node-config --filter=project-node-handler --filter=!@project/design-layout --filter=!project-admin-ui"
+    "dev:be": "turbo run dev --parallel --env-mode=loose --filter=@project/node-decorator --filter=@project/node-core --filter=@project/node-config --filter=project-node-api --filter=!@project/design-layout --filter=!project-admin-ui",
+    "migrate": "turbo run migrate --parallel --env-mode=loose --filter=@project/node-data",
+    "db:push": "turbo run db:push --parallel --env-mode=loose --filter=@project/node-data",
+    "db:down": "turbo run db:down --parallel --env-mode=loose --filter=@project/node-data"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:common",

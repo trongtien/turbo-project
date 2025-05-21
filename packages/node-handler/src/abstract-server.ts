@@ -16,7 +16,6 @@ export abstract class AbstractServer {
     protected readonly globalConfig: GlobalConfig = container.resolve(GlobalConfig)
     private readonly abstractConnectDatabase: AbstractDatabaseConnect = container.resolve(AbstractDatabaseConnect)
 
-
     constructor() {
         this.app = new Hono()
         this.onInitModule()
@@ -24,6 +23,7 @@ export abstract class AbstractServer {
 
     async onInitModule(): Promise<void> {
         await this.abstractConnectDatabase.onConnect()
+        
         await Promise.allSettled([
             this.commonMiddlewares(),
             this.loadRouter(),

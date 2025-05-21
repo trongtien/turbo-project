@@ -3,12 +3,20 @@
   "ui": "stream",
   "tasks": {
     "watch": {
-			"cache": false,
+			"cache": true,
 			"persistent": true
 		},
 		"dev": {
 			"cache": false,
 			"persistent": true
+		},
+    "migrate": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["@project/node-data#generate"]
+    },
+    "build:backend": {
+			"dependsOn": ["project-node-api#build"]
 		},
     "build:fe:admin": {
 			"dependsOn": ["project-admin-ui#build"]

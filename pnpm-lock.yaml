@@ -703,9 +703,18 @@ importers:
 
   packages/node-setting:
     dependencies:
+      '@project/node-config':
+        specifier: workspace:*
+        version: link:../@project/node-config
+      '@project/node-core':
+        specifier: workspace:*
+        version: link:../@project/node-core
       '@project/node-data':
         specifier: workspace:*
         version: link:../@project/node-data
+      '@project/node-decorator':
+        specifier: workspace:*
+        version: link:../@project/node-decorator
     devDependencies:
       '@project/typescript-config':
         specifier: workspace:*

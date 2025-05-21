@@ -1,5 +1,5 @@
 {
-  "name": "project-node-handler",
+  "name": "project-node-api",
   "version": "1.93.0",
   "description": "project handler app back end",
   "main": "dist/index",

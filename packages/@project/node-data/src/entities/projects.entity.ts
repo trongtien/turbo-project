@@ -3,12 +3,12 @@ import {
     text,
     varchar,
 } from "drizzle-orm/pg-core";
-import { abstractEntity } from "./abstract.entity";
+import { abstractEntity } from "./abstract-entity";
 import { sql } from "drizzle-orm";
 
-const pgTable = pgTableCreator((name) => `hono_${name}`);
+const pgTable = pgTableCreator((name) => `project_${name}`);
 
-export const categoryEntity = pgTable("category", {
+export const projectsEntity = pgTable("projects", {
     name: varchar("name", { length: 256 }).notNull(),
     description: text("description").default(sql`NULL`),
     ...abstractEntity

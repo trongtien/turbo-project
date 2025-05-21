@@ -28,7 +28,7 @@ class LoggingConfig {
 class PostgresConfig {
     /** Postgres database name */
     @Env('DB_POSTGRES_DB_DATABASE')
-    database: string = 'test';
+    database: string = 'project-test';
 
     /** Postgres database host */
     @Env('DB_POSTGRES_DB_HOST')
@@ -36,7 +36,7 @@ class PostgresConfig {
 
     /** Postgres database password */
     @Env('DB_POSTGRES_DB_PASSWORD')
-    password: string = '123123132';
+    password: string = 'project.test';
 
     /** Postgres database port */
     @Env('DB_POSTGRES_DB_PORT')
