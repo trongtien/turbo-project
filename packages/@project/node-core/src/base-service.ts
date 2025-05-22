@@ -51,7 +51,7 @@ export class SystemError extends BaseError {
     }
 }
 
-export abstract class BaseService {
+export abstract class ResultService {
     protected readonly logger: LoggerService = container.resolve(LoggerService)
 
     protected Ok<T>(data: any): ServiceResult<T> {

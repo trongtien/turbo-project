@@ -4,11 +4,11 @@ import type { SchemaDatabaseConnect } from "./types/abstract-database-connect.ty
 import { categoriesEntity, projectsCategoriesEntity, projectsEntity } from "./entities";
 import { Service, container } from '@project/node-decorator'
 import { GlobalConfig } from '@project/node-config'
-import { BaseService } from '@project/node-core'
+import { ResultService } from '@project/node-core'
 
 
 @Service({ singleton: true })
-export class AbstractDatabaseConnect extends BaseService {
+export class AbstractDatabaseConnect extends ResultService {
   private _client: PoolClient
   private _db: NodePgDatabase<SchemaDatabaseConnect>
   private _pool: Pool
